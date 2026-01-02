@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Book - Perpustakaan Kampus</title>
+
+    <!-- Tailwind build -->
+    <link rel="stylesheet" href="../dist/style.css" />
+  </head>
+
+  <body class="bg-white text-slate-900">
+    <!-- NAVBAR -->
+    <header class="bg-[#0b3a5a]">
+      <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+        <a href="index.html" class="text-xl font-semibold text-white">Kelompok 1</a>
+
+        <nav class="hidden items-center gap-8 text-sm text-white/80 md:flex">
+          <a href="index.html" class="hover:text-white">Home</a>
+          <a href="search.html" class="text-white">Search</a>
+          <a href="dashboard.html" class="hover:text-white">Dashboard</a>
+          <a href="#about" class="hover:text-white">About</a>
+        </nav>
+
+        <div class="flex items-center gap-3 text-white">
+          <div id="userNameTop" class="text-sm font-semibold">Name</div>
+          <div class="flex h-9 w-9 items-center justify-center rounded-full bg-white/10">👤</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- HEADLINE SECTION -->
+    <section class="bg-white">
+      <div class="mx-auto max-w-6xl px-6 py-12">
+        <div class="grid items-center gap-10 md:grid-cols-3">
+          <!-- LEFT -->
+          <div class="flex justify-center md:justify-start">
+            <img src="search.png" alt="Ilustrasi" class="w-[320px] max-w-full object-contain" />
+          </div>
+
+          <!-- CENTER -->
+          <div class="text-center">
+            <h1 class="font-serif text-4xl font-semibold leading-tight md:text-4xl">
+              Ayo Baca Buku <br />
+              di Perpustakaan
+            </h1>
+
+            <p class="mx-auto mt-4 max-w-md text-sm leading-relaxed text-slate-600">
+              Mari kita manfaatkan waktu luang kita dengan mengunjungi perpustakaan, sebuah gudang
+              ilmu yang siap membuka jendela dunia bagi siapa saja yang haus akan pengetahuan
+            </p>
+          </div>
+
+          <!-- RIGHT -->
+          <div class="relative flex justify-center">
+            <div class="relative h-56 w-56 rounded-full bg-[#f59e0b]">
+              <!-- gambar di atas bulat (kamu bisa ganti src) -->
+              <img
+                src="search2.png"
+                alt="Gambar Buku"
+                class="absolute left-1/2 top-1/2 w-60 -translate-x-1/2 -translate-y-1/2 object-contain"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEARCH + FILTER BAR -->
+    <section class="bg-[#0b3a5a]">
+      <div class="mx-auto max-w-6xl px-6 py-6">
+        <!-- Search field -->
+        <div class="flex justify-center">
+          <div class="flex w-full max-w-2xl items-center gap-3 rounded-full bg-white px-4 py-3">
+            <span class="text-slate-400">☰</span>
+            <input
+              id="searchInput"
+              type="text"
+              placeholder="Hinted search text"
+              class="w-full bg-transparent text-sm text-slate-700 outline-none placeholder:text-slate-400"
+            />
+            <span class="text-slate-400">🔍</span>
+          </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="mt-5 flex flex-wrap items-center justify-center gap-3">
+          <button
+            data-filter="ALL"
+            class="filterBtn rounded-full bg-[#f59e0b] px-8 py-2 text-xs font-semibold text-[#0b3a5a]"
+          >
+            ALL
+          </button>
+
+          <button
+            data-filter="Pemrograman"
+            class="filterBtn rounded-full bg-white px-8 py-2 text-xs font-semibold text-[#0b3a5a]"
+          >
+            Pemrograman
+          </button>
+          <button
+            data-filter="Bisnis"
+            class="filterBtn rounded-full bg-white px-8 py-2 text-xs font-semibold text-[#0b3a5a]"
+          >
+            Bisnis
+          </button>
+          <button
+            data-filter="Pendidikan"
+            class="filterBtn rounded-full bg-white px-8 py-2 text-xs font-semibold text-[#0b3a5a]"
+          >
+            Pendidikan
+          </button>
+          <button
+            data-filter="Novel"
+            class="filterBtn rounded-full bg-white px-8 py-2 text-xs font-semibold text-[#0b3a5a]"
+          >
+            Novel
+          </button>
+          <button
+            data-filter="Psikologi"
+            class="filterBtn rounded-full bg-white px-8 py-2 text-xs font-semibold text-[#0b3a5a]"
+          >
+            Psikologi
+          </button>
+          <button
+            data-filter="Hukum"
+            class="filterBtn rounded-full bg-white px-8 py-2 text-xs font-semibold text-[#0b3a5a]"
+          >
+            Hukum
+          </button>
+          <button
+            data-filter="Matematika"
+            class="filterBtn rounded-full bg-white px-8 py-2 text-xs font-semibold text-[#0b3a5a]"
+          >
+            Matematika
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIST BUKU -->
+    <section class="bg-white">
+      <div class="mx-auto max-w-6xl px-6 py-10">
+        <div
+          class="inline-block rounded-full bg-[#f59e0b] px-10 py-2 text-xs font-semibold text-[#0b3a5a]"
+        >
+          Rekomendasi
+        </div>
+
+        <div id="booksGrid" class="mt-10 grid gap-10 md:grid-cols-4"></div>
+
+        <div class="mt-10 flex justify-center">
+          <button
+            id="btnMore"
+            class="rounded-full bg-[#f59e0b] px-10 py-3 text-xs font-semibold text-[#0b3a5a]"
+          >
+            Lihat Lebih Banyak ▾
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-white">
+      <div class="mx-auto max-w-6xl px-6 py-10">
+        <div class="grid gap-10 md:grid-cols-3">
+          <div>
+            <div class="text-sm font-semibold">Kelompok 1</div>
+            <p class="mt-3 max-w-xs text-xs text-slate-500">
+              Ayo luangin sedikit waktu buat baca buku, biar pikiran makin luas dan hati makin tenang.
+            </p>
+
+            <div class="mt-4 flex items-center gap-4 text-slate-500">
+              <span class="inline-flex h-6 w-6 items-center justify-center rounded border text-[10px]">IG</span>
+              <span class="inline-flex h-6 w-6 items-center justify-center rounded border text-[10px]">FB</span>
+              <span class="inline-flex h-6 w-6 items-center justify-center rounded border text-[10px]">YT</span>
+            </div>
+          </div>
+
+          <div>
+            <div class="text-sm font-semibold">Information</div>
+            <ul class="mt-3 space-y-1 text-xs text-slate-500">
+              <li><a href="index.html" class="hover:text-slate-700">Home</a></li>
+              <li><a href="search.html" class="hover:text-slate-700">Search</a></li>
+              <li><a href="dashboard.html" class="hover:text-slate-700">Dashboard</a></li>
+              <li><a href="#" class="hover:text-slate-700">Kategori Buku</a></li>
+              <li><a href="#" class="hover:text-slate-700">FAQ</a></li>
+            </ul>
+          </div>
+
+          <div class="md:text-right">
+            <div class="text-sm font-semibold">Jam Operasional</div>
+            <p class="mt-3 text-xs text-slate-500">
+              Senin–Jumat: 08.00–16.00 <br />
+              Sabtu: 09.00–14.00 <br />
+              Minggu: Tutup
+            </p>
+
+            <p class="mt-6 text-xs text-slate-500">
+              Jl. Citra Raya Boulevard Blok S No.01 25, Kabupaten Tangerang <br />
+              Telp: (022) 08010803 <br />
+              Email: admin@perpustakaan.id
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-10 border-t pt-4 text-center text-[10px] text-slate-400">
+          © 2026 Perpustakaan Digital. All Rights Reserved.
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // ===== Nama user dummy (ambil dari localStorage kalau ada) =====
+      const email = localStorage.getItem("user_email");
+      if (email) {
+        const name = email.split("@")[0];
+        document.getElementById("userNameTop").textContent =
+          name.charAt(0).toUpperCase() + name.slice(1);
+      }
+
+      // ===== FALLBACK IMAGE (biar cover gak kosong) =====
+      const FALLBACK = "https://placehold.co/240x320/png?text=Cover%20Buku";
+      function applyFallbackImages(root = document) {
+        root.querySelectorAll("img[data-fallback]").forEach((img) => {
+          img.addEventListener(
+            "error",
+            () => {
+              img.src = img.getAttribute("data-fallback");
+            },
+            { once: true }
+          );
+        });
+      }
+
+      // ===== DATA BUKU: SAMA PERSIS KAYA INDEX/DASHBOARD =====
+      const BOOKS = [
+        {
+          id: "b1",
+          title: "Mahir Pemrograman dengan HTML, CSS, dan JavaScript",
+          author: "Faishal Nafi' Rabbani",
+          category: "Pemrograman",
+          cover: "assets/mahir-html-css-js.jpeg",
+          stock: 3,
+          rack: "Rak A-01",
+          short: "Pengantar web development untuk pemula.",
+          rating: 5,
+          desc:
+            "Buku ini membahas fondasi pembuatan website: struktur HTML, styling CSS, dan logika JavaScript. Cocok untuk pemula hingga bisa membuat halaman web interaktif.",
+        },
+        {
+          id: "b2",
+          title: "Perspektif Pendidikan dalam Bingkai Ilmu dan Tokoh",
+          author: "Kurniawan",
+          category: "Pendidikan",
+          cover: "assets/perspektif-pendidikan.jpeg",
+          stock: 2,
+          rack: "Rak C-02",
+          short: "Teori pendidikan & tokoh pendidikan.",
+          rating: 5,
+          desc:
+            "Mengulas sistem pendidikan nasional, perspektif pendidikan, pemikiran tokoh pendidikan, serta dasar filsafat pendidikan.",
+        },
+        {
+          id: "b3",
+          title: "Hukum Tata Ruang",
+          author: "Referensi Hukum",
+          category: "Hukum",
+          cover: "assets/hukum-tata-ruang.jpeg",
+          stock: 1,
+          rack: "Rak D-05",
+          short: "Regulasi & penataan ruang.",
+          rating: 4,
+          desc:
+            "Membahas konsep dasar penataan ruang, regulasi, kelembagaan, dan contoh kasus penegakan hukum tata ruang.",
+        },
+        {
+          id: "b4",
+          title: "Laut Bercerita",
+          author: "Leila S. Chudori",
+          category: "Novel",
+          cover: "https://covers.openlibrary.org/b/isbn/9786024246945-L.jpg",
+          stock: 2,
+          rack: "Rak F-01",
+          short: "Novel tentang kehilangan & perjuangan.",
+          rating: 5,
+          desc:
+            "Bertutur tentang kisah keluarga yang kehilangan dan upaya mencari kejelasan tentang orang-orang yang hilang.",
+        },
+        {
+          id: "b5",
+          title: "Cantik Itu Luka",
+          author: "Eka Kurniawan",
+          category: "Novel",
+          cover: "https://covers.openlibrary.org/b/isbn/9786020312583-L.jpg",
+          stock: 4,
+          rack: "Rak F-03",
+          short: "Novel epik realisme magis.",
+          rating: 5,
+          desc:
+            "Kisah keluarga dengan alur kaya, dibalut realisme magis dan potret sejarah. Penuh simbol dan konflik.",
+        },
+        {
+          id: "b6",
+          title: "Atomic Habits",
+          author: "James Clear",
+          category: "Psikologi",
+          cover: "https://covers.openlibrary.org/b/isbn/9786020633176-L.jpg",
+          stock: 2,
+          rack: "Rak B-04",
+          short: "Kebiasaan kecil berdampak besar.",
+          rating: 5,
+          desc:
+            "Menjelaskan bagaimana kebiasaan terbentuk dan cara mengubahnya lewat langkah kecil yang konsisten.",
+        },
+        {
+          id: "b7",
+          title: "Komunikasi Bisnis",
+          author: "Hery",
+          category: "Bisnis",
+          cover: "assets/komunikasi-bisnis.jpeg",
+          stock: 1,
+          rack: "Rak E-02",
+          short: "Komunikasi profesional di dunia kerja.",
+          rating: 4,
+          desc:
+            "Membahas surat bisnis, rapat, laporan, negosiasi, dan etika komunikasi dalam organisasi.",
+        },
+        {
+          id: "b8",
+          title: "Kalkulus untuk Informatika (Panduan Python)",
+          author: "Erwin Budi Setiawan dkk.",
+          category: "Matematika",
+          cover: "assets/kalkulus-informatika.jpeg",
+          stock: 3,
+          rack: "Rak A-06",
+          short: "Limit, turunan, integral + penerapan.",
+          rating: 4,
+          desc:
+            "Membahas kalkulus untuk informatika dengan contoh penerapan dan latihan agar mudah dipahami.",
+        },
+      ];
+
+      let activeFilter = "ALL";
+      let showAll = false;
+
+      const grid = document.getElementById("booksGrid");
+      const searchInput = document.getElementById("searchInput");
+      const filterBtns = Array.from(document.querySelectorAll(".filterBtn"));
+      const btnMore = document.getElementById("btnMore");
+
+      function matchesSearch(book, q) {
+        if (!q) return true;
+        const text = (book.title + " " + book.author + " " + book.category).toLowerCase();
+        return text.includes(q.toLowerCase());
+      }
+
+      function matchesFilter(book) {
+        if (activeFilter === "ALL") return true;
+        return book.category === activeFilter;
+      }
+
+      function setSelectedBookById(id) {
+        const book = BOOKS.find((b) => b.id === id);
+        if (book) localStorage.setItem("selected_book", JSON.stringify(book));
+      }
+
+      function renderBooks() {
+        const q = searchInput.value.trim();
+        const filtered = BOOKS.filter((b) => matchesFilter(b) && matchesSearch(b, q));
+        const toShow = showAll ? filtered : filtered.slice(0, 8);
+
+        grid.innerHTML = toShow
+          .map((b) => {
+            return `
+              <div class="rounded-3xl border border-slate-900/60 p-4 shadow-sm hover:bg-slate-50">
+                <div class="mx-auto flex h-56 w-44 items-center justify-center rounded-2xl border border-slate-200 bg-white">
+                  <img
+                    src="${b.cover}"
+                    data-fallback="${FALLBACK}"
+                    alt="${b.title}"
+                    class="h-44 w-32 rounded-lg object-cover"
+                  />
+                </div>
+
+                <div class="mt-4 text-center">
+                  <button
+                    data-book-id="${b.id}"
+                    class="btnRead rounded bg-[#0b3a5a] px-10 py-2 text-xs font-semibold text-white"
+                  >
+                    Baca Buku
+                  </button>
+                </div>
+              </div>
+            `;
+          })
+          .join("");
+
+        applyFallbackImages(document);
+
+        document.querySelectorAll(".btnRead").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const id = btn.getAttribute("data-book-id");
+            setSelectedBookById(id);
+            window.location.href = "book.html";
+          });
+        });
+      }
+
+      // Filter click
+      filterBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          activeFilter = btn.getAttribute("data-filter");
+
+          filterBtns.forEach((b) => {
+            b.classList.remove("bg-[#f59e0b]");
+            b.classList.remove("text-[#0b3a5a]");
+            b.classList.add("bg-white");
+            b.classList.add("text-[#0b3a5a]");
+          });
+
+          btn.classList.remove("bg-white");
+          btn.classList.add("bg-[#f59e0b]");
+          btn.classList.add("text-[#0b3a5a]");
+
+          showAll = false;
+          btnMore.textContent = "Lihat Lebih Banyak ▾";
+          renderBooks();
+        });
+      });
+
+      // Search typing
+      searchInput.addEventListener("input", () => renderBooks());
+
+      // More button
+      btnMore.addEventListener("click", () => {
+        showAll = !showAll;
+        btnMore.textContent = showAll ? "Tampilkan Lebih Sedikit ▴" : "Lihat Lebih Banyak ▾";
+        renderBooks();
+      });
+
+      // render awal
+      renderBooks();
+    </script>
+  </body>
+</html>

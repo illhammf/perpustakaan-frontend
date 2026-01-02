@@ -1,0 +1,4 @@
+@import "tailwindcss";
+
+/* beritahu tailwind file mana yang harus discan */
+@source "../*.html";

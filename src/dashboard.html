@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - Perpustakaan Kampus</title>
+
+    <!-- Tailwind build -->
+    <link rel="stylesheet" href="../dist/style.css" />
+  </head>
+
+  <body class="bg-white text-slate-900">
+    <div class="min-h-screen">
+      <div class="flex min-h-screen">
+        <!-- SIDEBAR -->
+        <aside class="w-64 bg-[#0b3a5a] text-white">
+          <div class="flex items-center gap-3 px-6 py-4">
+            <div
+              class="flex h-9 w-9 items-center justify-center rounded-full bg-white/15 text-sm font-semibold"
+            >
+              👤
+            </div>
+            <div>
+              <div id="userName" class="text-sm font-semibold leading-tight">Name</div>
+              <div id="userRole" class="text-[11px] text-white/70">role</div>
+            </div>
+          </div>
+
+          <nav class="px-3 pb-6 text-sm">
+            <a
+              href="index.html"
+              class="flex items-center gap-3 rounded-md px-3 py-2 text-white/80 hover:bg-white/10 hover:text-white"
+            >
+              <span>🏠</span> <span>Home</span>
+            </a>
+
+            <div class="mt-3 rounded-md px-3 py-2 text-xs font-semibold text-white/70">
+              Your Collection
+            </div>
+
+            <a
+              href="dashboard.html"
+              class="flex items-center gap-3 rounded-md bg-white/10 px-3 py-2 text-white"
+            >
+              <span>📊</span> <span>Dashboard</span>
+            </a>
+
+            <a
+              href="search.html"
+              class="flex items-center gap-3 rounded-md px-3 py-2 text-white/80 hover:bg-white/10 hover:text-white"
+            >
+              <span>⭐</span> <span>Favorite</span>
+            </a>
+
+            <a
+              href="search.html"
+              class="flex items-center gap-3 rounded-md px-3 py-2 text-white/80 hover:bg-white/10 hover:text-white"
+            >
+              <span>📚</span> <span>Peminjaman</span>
+            </a>
+
+            <a
+              href="search.html"
+              class="flex items-center gap-3 rounded-md px-3 py-2 text-white/80 hover:bg-white/10 hover:text-white"
+            >
+              <span>✅</span> <span>Pengembalian</span>
+            </a>
+
+            <div class="mt-4 border-t border-white/15 pt-4">
+              <a
+                href="#"
+                class="flex items-center gap-3 rounded-md px-3 py-2 text-white/80 hover:bg-white/10 hover:text-white"
+              >
+                <span>⚙️</span> <span>Pengaturan Akun</span>
+              </a>
+
+              <button
+                id="logoutBtn"
+                class="mt-2 flex w-full items-center gap-3 rounded-md px-3 py-2 text-left text-white/80 hover:bg-white/10 hover:text-white"
+              >
+                <span>↩️</span> <span>Log out</span>
+              </button>
+            </div>
+          </nav>
+        </aside>
+
+        <!-- MAIN -->
+        <main class="flex-1 bg-white">
+          <!-- TOP BAR -->
+          <header class="bg-[#0b3a5a] px-6 py-4">
+            <div class="flex items-center justify-between gap-4">
+              <div class="flex w-full max-w-xl items-center gap-2 rounded-full bg-white px-4 py-2">
+                <span class="text-slate-400">🔍</span>
+                <input
+                  id="searchInput"
+                  type="text"
+                  placeholder="Hinted search text"
+                  class="w-full bg-transparent text-sm text-slate-700 outline-none placeholder:text-slate-400"
+                />
+              </div>
+
+              <button
+                type="button"
+                class="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20"
+                title="Settings"
+              >
+                ⚙️
+              </button>
+            </div>
+          </header>
+
+          <!-- CONTENT -->
+          <section class="px-6 py-6">
+            <!-- Favorit Books -->
+            <div class="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+              <div
+                class="mb-4 inline-block rounded bg-[#f59e0b] px-3 py-1 text-xs font-semibold text-[#0b3a5a]"
+              >
+                Favorit Books
+              </div>
+
+              <div id="favGrid" class="grid gap-4 md:grid-cols-4"></div>
+            </div>
+
+            <!-- Collection Books -->
+            <div class="mt-6 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+                <div
+                    class="mb-4 inline-block rounded bg-[#f59e0b] px-3 py-1 text-xs font-semibold text-[#0b3a5a]"
+                >
+                    Collection Books
+                </div>
+              <div id="colGrid" class="grid gap-4 md:grid-cols-4"></div>
+            </div>
+          </section>
+
+          <!-- FOOTER -->
+          <footer class="bg-white">
+            <div class="mx-auto max-w-6xl px-6 py-10">
+              <div class="grid gap-10 md:grid-cols-3">
+                <div>
+                  <div class="text-sm font-semibold">Kelompok 1</div>
+                  <p class="mt-3 max-w-xs text-xs text-slate-500">
+                    Ayo luangin sedikit waktu buat baca buku, biar pikiran makin luas dan hati makin
+                    tenang.
+                  </p>
+
+                  <div class="mt-4 flex items-center gap-4 text-slate-500">
+                    <span
+                      class="inline-flex h-6 w-6 items-center justify-center rounded border text-[10px]"
+                      >IG</span
+                    >
+                    <span
+                      class="inline-flex h-6 w-6 items-center justify-center rounded border text-[10px]"
+                      >FB</span
+                    >
+                    <span
+                      class="inline-flex h-6 w-6 items-center justify-center rounded border text-[10px]"
+                      >YT</span
+                    >
+                  </div>
+                </div>
+
+                <div>
+                  <div class="text-sm font-semibold">Information</div>
+                  <ul class="mt-3 space-y-1 text-xs text-slate-500">
+                    <li><a href="index.html" class="hover:text-slate-700">Home</a></li>
+                    <li><a href="search.html" class="hover:text-slate-700">Search</a></li>
+                    <li><a href="dashboard.html" class="hover:text-slate-700">Dashboard</a></li>
+                    <li><a href="search.html" class="hover:text-slate-700">Kategori Buku</a></li>
+                    <li><a href="#faq" class="hover:text-slate-700">FAQ</a></li>
+                  </ul>
+                </div>
+
+                <div class="md:text-right">
+                  <div class="text-sm font-semibold">Jam Operasional</div>
+                  <p class="mt-3 text-xs text-slate-500">
+                    Senin–Jumat: 08.00–16.00 <br />
+                    Sabtu: 09.00–14.00 <br />
+                    Minggu: Tutup
+                  </p>
+
+                  <p class="mt-6 text-xs text-slate-500">
+                    Jl. Citra Raya Boulevard Blok S No.01 25, Kabupaten Tangerang <br />
+                    Telp: (022) 08010803 <br />
+                    Email: admin@perpustakaan.id
+                  </p>
+                </div>
+              </div>
+
+              <div class="mt-10 border-t pt-4 text-center text-[10px] text-slate-400">
+                © 2026 Perpustakaan Digital. All Rights Reserved.
+              </div>
+            </div>
+          </footer>
+        </main>
+      </div>
+    </div>
+
+    <script>
+      // ===== Guard: kalau belum login, balik ke login =====
+      const email = localStorage.getItem("user_email");
+      const role = localStorage.getItem("role");
+
+      if (!email || !role) {
+        window.location.href = "login.html";
+      } else {
+        const name = email.split("@")[0];
+        document.getElementById("userName").textContent =
+          name.charAt(0).toUpperCase() + name.slice(1);
+        document.getElementById("userRole").textContent = role;
+      }
+
+      // ===== Logout =====
+      document.getElementById("logoutBtn").addEventListener("click", () => {
+        localStorage.removeItem("user_email");
+        localStorage.removeItem("role");
+        window.location.href = "login.html";
+      });
+
+      // ===== FALLBACK IMAGE =====
+      function applyFallbackImages(root = document) {
+        root.querySelectorAll("img[data-fallback]").forEach((img) => {
+          img.addEventListener(
+            "error",
+            () => {
+              img.src = img.getAttribute("data-fallback");
+            },
+            { once: true }
+          );
+        });
+      }
+
+      // ===== DATA BUKU (samakan dengan index kamu) =====
+      const BOOKS = [
+        {
+          id: "b1",
+          title: "Mahir Pemrograman dengan HTML, CSS, dan JavaScript",
+          author: "Faishal Nafi' Rabbani",
+          category: "Pemrograman",
+          cover: "assets/mahir-html-css-js.jpeg",
+          stock: 3,
+          rack: "Rak A-01",
+          short: "Pengantar web development untuk pemula.",
+          rating: 5,
+          desc:
+            "Buku ini membahas fondasi pembuatan website: struktur HTML, styling CSS, dan logika JavaScript. Cocok untuk pemula hingga bisa membuat halaman web interaktif.",
+        },
+        {
+          id: "b2",
+          title: "Perspektif Pendidikan dalam Bingkai Ilmu dan Tokoh",
+          author: "Kurniawan",
+          category: "Pendidikan",
+          cover: "assets/perspektif-pendidikan.jpeg",
+          stock: 2,
+          rack: "Rak C-02",
+          short: "Teori pendidikan & tokoh pendidikan.",
+          rating: 5,
+          desc:
+            "Mengulas sistem pendidikan nasional, perspektif pendidikan, pemikiran tokoh pendidikan, serta dasar filsafat pendidikan.",
+        },
+        {
+          id: "b3",
+          title: "Hukum Tata Ruang",
+          author: "Referensi Hukum",
+          category: "Hukum",
+          cover: "assets/hukum-tata-ruang.jpeg",
+          stock: 1,
+          rack: "Rak D-05",
+          short: "Regulasi & penataan ruang.",
+          rating: 4,
+          desc:
+            "Membahas konsep dasar penataan ruang, regulasi, kelembagaan, dan contoh kasus penegakan hukum tata ruang.",
+        },
+        {
+          id: "b4",
+          title: "Laut Bercerita",
+          author: "Leila S. Chudori",
+          category: "Novel",
+          cover: "https://covers.openlibrary.org/b/isbn/9786024246945-L.jpg",
+          stock: 2,
+          rack: "Rak F-01",
+          short: "Novel tentang kehilangan & perjuangan.",
+          rating: 5,
+          desc:
+            "Bertutur tentang kisah keluarga yang kehilangan dan upaya mencari kejelasan tentang orang-orang yang hilang.",
+        },
+        {
+          id: "b5",
+          title: "Cantik Itu Luka",
+          author: "Eka Kurniawan",
+          category: "Novel",
+          cover: "https://covers.openlibrary.org/b/isbn/9786020312583-L.jpg",
+          stock: 4,
+          rack: "Rak F-03",
+          short: "Novel epik realisme magis.",
+          rating: 5,
+          desc:
+            "Kisah keluarga dengan alur kaya, dibalut realisme magis dan potret sejarah. Penuh simbol dan konflik.",
+        },
+        {
+          id: "b6",
+          title: "Atomic Habits",
+          author: "James Clear",
+          category: "Psikologi",
+          cover: "https://covers.openlibrary.org/b/isbn/9786020633176-L.jpg",
+          stock: 2,
+          rack: "Rak B-04",
+          short: "Kebiasaan kecil berdampak besar.",
+          rating: 5,
+          desc:
+            "Menjelaskan bagaimana kebiasaan terbentuk dan cara mengubahnya lewat langkah kecil yang konsisten.",
+        },
+        {
+          id: "b7",
+          title: "Komunikasi Bisnis",
+          author: "Hery",
+          category: "Bisnis",
+          cover: "assets/komunikasi-bisnis.jpeg",
+          stock: 1,
+          rack: "Rak E-02",
+          short: "Komunikasi profesional di dunia kerja.",
+          rating: 4,
+          desc:
+            "Membahas surat bisnis, rapat, laporan, negosiasi, dan etika komunikasi dalam organisasi.",
+        },
+        {
+          id: "b8",
+          title: "Kalkulus untuk Informatika (Panduan Python)",
+          author: "Erwin Budi Setiawan dkk.",
+          category: "Matematika",
+          cover: "assets/kalkulus-informatika.jpeg",
+          stock: 3,
+          rack: "Rak A-06",
+          short: "Limit, turunan, integral + penerapan.",
+          rating: 4,
+          desc:
+            "Membahas kalkulus untuk informatika dengan contoh penerapan dan latihan agar mudah dipahami.",
+        },
+      ];
+
+      const FALLBACK = "https://placehold.co/240x320/png?text=Cover%20Buku";
+
+      function stars(n = 5) {
+        const full = "★".repeat(Math.max(0, Math.min(5, n)));
+        const empty = "☆".repeat(5 - full.length);
+        return full + empty;
+      }
+
+      function setSelectedBookById(id) {
+        const book = BOOKS.find((b) => b.id === id);
+        if (book) localStorage.setItem("selected_book", JSON.stringify(book));
+      }
+
+      function createMiniCard(book) {
+        const a = document.createElement("a");
+        a.href = "book.html";
+        a.className = "bookCard rounded-xl border border-slate-900/60 p-4 hover:bg-slate-50";
+        a.setAttribute("data-book-id", book.id);
+
+        a.innerHTML = `
+          <div class="flex gap-3">
+            <img
+              src="${book.cover}"
+              data-fallback="${FALLBACK}"
+              alt="${book.title}"
+              class="h-16 w-12 rounded object-cover"
+            />
+            <div class="min-w-0">
+              <div class="text-sm font-semibold line-clamp-1">${book.title}</div>
+              <div class="mt-1 text-[11px] text-slate-500 line-clamp-2">${book.short}</div>
+              <div class="mt-2 text-xs text-slate-400">${stars(book.rating)}</div>
+            </div>
+          </div>
+        `;
+
+        a.addEventListener("click", () => setSelectedBookById(book.id));
+        return a;
+      }
+
+      // Render
+      const favIds = ["b4", "b6", "b5", "b1"]; // favorit (boleh kamu ubah urutannya)
+      const favBooks = favIds.map((id) => BOOKS.find((b) => b.id === id)).filter(Boolean);
+      const favGrid = document.getElementById("favGrid");
+      favBooks.forEach((b) => favGrid.appendChild(createMiniCard(b)));
+
+      const colGrid = document.getElementById("colGrid");
+      BOOKS.forEach((b) => colGrid.appendChild(createMiniCard(b)));
+
+      applyFallbackImages(document);
+
+      // Search sederhana (filter judul)
+      document.getElementById("searchInput").addEventListener("input", (e) => {
+        const q = e.target.value.toLowerCase().trim();
+
+        // Collection filter
+        colGrid.innerHTML = "";
+        BOOKS.filter((b) => b.title.toLowerCase().includes(q)).forEach((b) =>
+          colGrid.appendChild(createMiniCard(b))
+        );
+
+        // Favorit tetap (atau ikut filter juga kalau mau)
+        favGrid.innerHTML = "";
+        favBooks
+          .filter((b) => b.title.toLowerCase().includes(q))
+          .forEach((b) => favGrid.appendChild(createMiniCard(b)));
+
+        applyFallbackImages(document);
+      });
+    </script>
+  </body>
+</html>

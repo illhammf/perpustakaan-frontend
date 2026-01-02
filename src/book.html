@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detail Buku - Perpustakaan Kampus</title>
+
+    <!-- Tailwind build -->
+    <link rel="stylesheet" href="../dist/style.css" />
+  </head>
+
+  <body class="bg-white text-slate-900">
+    <!-- NAVBAR -->
+    <header class="bg-[#0b3a5a]">
+      <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+        <a href="index.html" class="text-xl font-semibold text-white">Kelompok 1</a>
+
+        <nav class="hidden items-center gap-8 text-sm text-white/80 md:flex">
+          <a href="index.html" class="hover:text-white">Home</a>
+          <a href="search.html" class="hover:text-white">Search</a>
+          <a href="dashboard.html" class="hover:text-white">Dashboard</a>
+          <a href="#about" class="hover:text-white">About</a>
+        </nav>
+
+        <div class="flex items-center gap-3 text-white">
+          <div id="navName" class="text-sm font-semibold">Name</div>
+          <div class="flex h-9 w-9 items-center justify-center rounded-full bg-white/10">👤</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ALERT -->
+    <div class="mx-auto max-w-6xl px-6">
+      <div id="alert" class="mt-6 hidden rounded-lg border px-4 py-3 text-sm"></div>
+    </div>
+
+    <!-- HERO BOOK DETAIL -->
+    <section class="bg-white">
+      <div class="mx-auto grid max-w-6xl items-start gap-10 px-6 py-10 md:grid-cols-2">
+        <!-- Left: text -->
+        <div>
+          <div class="text-[10px] tracking-[0.28em] text-slate-400">BOOK DETAILS</div>
+
+          <h1 id="bookTitle" class="mt-3 font-serif text-4xl font-semibold leading-tight">
+            Judul Buku
+          </h1>
+
+          <div class="mt-3 flex flex-wrap items-center gap-2 text-xs text-slate-500">
+            <span class="rounded-full bg-slate-100 px-3 py-1">
+              Penulis: <span id="bookAuthor" class="font-semibold text-slate-700">-</span>
+            </span>
+            <span class="rounded-full bg-slate-100 px-3 py-1">
+              Kategori: <span id="bookCategory" class="font-semibold text-slate-700">-</span>
+            </span>
+            <span class="rounded-full bg-slate-100 px-3 py-1">
+              Stok: <span id="bookStock" class="font-semibold text-slate-700">-</span>
+            </span>
+            <span class="rounded-full bg-slate-100 px-3 py-1">
+              Lokasi: <span id="bookRack" class="font-semibold text-slate-700">-</span>
+            </span>
+          </div>
+
+          <p id="bookShort" class="mt-5 max-w-xl text-sm leading-relaxed text-slate-600">
+            Lorem ipsum dolor sit amet consectetur. Nulla vitae varius velit.
+          </p>
+
+          <div class="mt-6 flex items-center gap-6">
+            <button
+              id="borrowBtn"
+              class="rounded-full bg-[#f59e0b] px-10 py-3 text-xs font-semibold text-[#0b3a5a] hover:brightness-95"
+            >
+              Pinjam Sekarang
+            </button>
+
+            <a href="search.html" class="text-xs text-slate-500 hover:text-slate-700">Kembali</a>
+          </div>
+        </div>
+
+        <!-- Right: cover -->
+        <div class="flex justify-center md:justify-end">
+          <img
+            id="bookCover"
+            src="assets/book-1.png"
+            alt="Cover Buku"
+            class="h-80 w-56 rounded-xl object-cover shadow-lg"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- DESKRIPSI -->
+    <section class="bg-white">
+      <div class="mx-auto max-w-6xl px-6 pb-10">
+        <div
+          class="inline-block rounded-full bg-[#f59e0b] px-10 py-2 text-xs font-semibold text-[#0b3a5a]"
+        >
+          Deskripsi
+        </div>
+
+        <div class="mt-6 rounded-2xl bg-slate-50 p-6 leading-relaxed text-slate-700">
+          <p id="bookDesc" class="whitespace-pre-line text-sm">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+          </p>
+        </div>
+
+        <div class="mt-6 flex justify-center">
+          <button
+            id="toggleBtn"
+            class="rounded-full border border-slate-300 bg-white px-10 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"
+          >
+            Baca Selengkapnya ▾
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- REKOMENDASI -->
+    <section class="bg-[#0b3a5a]">
+      <div class="mx-auto max-w-6xl px-6 py-14">
+        <div class="text-center">
+          <h2 class="mt-2 font-serif text-4xl font-semibold text-white md:text-5xl">
+            Favorit Buku <br />
+            Untuk Dibaca
+          </h2>
+          <p class="mx-auto mt-4 max-w-xl text-xs text-white/75">
+            Anda bisa memilih rekomendasi buku lainnya untuk dibaca atau dipinjam.
+          </p>
+        </div>
+
+        <div id="recoGrid" class="mt-10 grid gap-6 md:grid-cols-4"></div>
+
+        <div class="mt-6 flex justify-center text-white/40">
+          <span>• • • • •</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-white">
+      <div class="mx-auto max-w-6xl px-6 py-10">
+        <div class="grid gap-10 md:grid-cols-3">
+          <div>
+            <div class="text-sm font-semibold">Kelompok 1</div>
+            <p class="mt-3 max-w-xs text-xs text-slate-500">
+              Ayo luangin sedikit waktu buat baca buku, biar pikiran makin luas dan hati makin tenang.
+            </p>
+
+            <div class="mt-4 flex items-center gap-4 text-slate-500">
+              <span class="inline-flex h-6 w-6 items-center justify-center rounded border text-[10px]">IG</span>
+              <span class="inline-flex h-6 w-6 items-center justify-center rounded border text-[10px]">FB</span>
+              <span class="inline-flex h-6 w-6 items-center justify-center rounded border text-[10px]">YT</span>
+            </div>
+          </div>
+
+          <div>
+            <div class="text-sm font-semibold">Information</div>
+            <ul class="mt-3 space-y-1 text-xs text-slate-500">
+              <li><a href="index.html" class="hover:text-slate-700">Home</a></li>
+              <li><a href="search.html" class="hover:text-slate-700">Search</a></li>
+              <li><a href="dashboard.html" class="hover:text-slate-700">Dashboard</a></li>
+              <li><a href="#" class="hover:text-slate-700">Kategori Buku</a></li>
+              <li><a href="#" class="hover:text-slate-700">FAQ</a></li>
+            </ul>
+          </div>
+
+          <div class="md:text-right">
+            <div class="text-sm font-semibold">Jam Operasional</div>
+            <p class="mt-3 text-xs text-slate-500">
+              Senin–Jumat: 08.00–16.00 <br />
+              Sabtu: 09.00–14.00 <br />
+              Minggu: Tutup
+            </p>
+
+            <p class="mt-6 text-xs text-slate-500">
+              Jl. Citra Raya Boulevard Blok S No.01 25, Kabupaten Tangerang <br />
+              Telp: (022) 08010803 <br />
+              Email: admin@perpustakaan.id
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-10 border-t pt-4 text-center text-[10px] text-slate-400">
+          © 2026 Perpustakaan Digital. All Rights Reserved.
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // ===== Helper UI =====
+      const alertBox = document.getElementById("alert");
+      function showAlert(type, message) {
+        alertBox.classList.remove("hidden");
+        alertBox.textContent = message;
+        alertBox.className = "mt-6 rounded-lg border px-4 py-3 text-sm";
+
+        if (type === "success")
+          alertBox.classList.add("border-green-300", "bg-green-50", "text-green-700");
+        else if (type === "error")
+          alertBox.classList.add("border-red-300", "bg-red-50", "text-red-700");
+        else alertBox.classList.add("border-yellow-300", "bg-yellow-50", "text-yellow-800");
+      }
+
+      // ===== Navbar name (optional) =====
+      const userEmail = localStorage.getItem("user_email");
+      if (userEmail) {
+        const name = userEmail.split("@")[0];
+        document.getElementById("navName").textContent =
+          name.charAt(0).toUpperCase() + name.slice(1);
+      }
+
+      // ===== FALLBACK IMAGE =====
+      const FALLBACK = "https://placehold.co/240x320/png?text=Cover%20Buku";
+      function applyFallbackImages(root = document) {
+        root.querySelectorAll("img[data-fallback]").forEach((img) => {
+          img.addEventListener(
+            "error",
+            () => {
+              img.src = img.getAttribute("data-fallback");
+            },
+            { once: true }
+          );
+        });
+      }
+
+      // ===== MASTER DATA (samain sama index/dashboard/search kamu) =====
+      // Cover: pakai yang kamu punya (assets/*.jpeg) + yang dari openlibrary
+      const BOOKS = [
+        {
+          id: "b1",
+          title: "Mahir Pemrograman dengan HTML, CSS, dan JavaScript",
+          author: "Faishal Nafi' Rabbani",
+          category: "Pemrograman",
+          cover: "assets/mahir-html-css-js.jpeg",
+          stock: 3,
+          rack: "Rak A-01",
+          short: "Buku pengantar web development untuk pemula.",
+          desc:
+            "Buku Mahir Pemrograman dengan HTML, CSS, dan JavaScript menyajikan pengantar komprehensif tentang pengembangan web dari konsep dasar hingga penerapan praktis pembuatan halaman yang interaktif. Pembahasan dimulai dari HTML sebagai fondasi struktur dokumen web, mencakup pemahaman elemen, atribut, form, serta prinsip semantic markup untuk menghasilkan halaman yang lebih terorganisir dan mudah diakses. Selanjutnya, CSS dibahas sebagai perangkat untuk membangun estetika dan tata letak, meliputi box model, tipografi, warna, hingga teknik layout modern seperti flexbox dan grid yang mendukung pembuatan desain responsif. Pada bagian JavaScript, buku ini menekankan aspek logika pemrograman dan interaksi pengguna melalui manipulasi DOM, event handling, dan pembuatan fungsi-fungsi sederhana yang sering digunakan dalam aplikasi web. Melalui pendekatan bertahap dan berorientasi praktik, buku ini memberikan latihan terstruktur serta studi kasus mini proyek sebagai sarana penguatan konsep. Dengan demikian, buku ini relevan sebagai rujukan pemula yang ingin membangun kompetensi dasar front-end serta memahami alur kerja pengembangan antarmuka web secara sistematis..",
+        },
+        {
+          id: "b2",
+          title: "Perspektif Pendidikan dalam Bingkai Ilmu dan Tokoh",
+          author: "Kurniawan",
+          category: "Pendidikan",
+          cover: "assets/perspektif-pendidikan.jpeg",
+          stock: 2,
+          rack: "Rak C-02",
+          short: "Teori pendidikan & tokoh pendidikan.",
+          desc:
+            "Buku Perspektif Pendidikan dalam Bingkai Ilmu dan Tokoh memaparkan pendidikan sebagai disiplin ilmu yang berkembang melalui lintasan pemikiran, teori belajar, dan kontribusi tokoh-tokoh pendidikan dari berbagai era. Pembahasan menitikberatkan pada relasi antara pendidikan dan dinamika sosial-budaya, tujuan pendidikan, serta peran institusi pendidikan dalam membentuk kualitas manusia. Buku ini menguraikan berbagai perspektif pendidikan—baik filosofis, psikologis, maupun sosiologis yang memengaruhi pendekatan pembelajaran dan praktik pedagogis. Tokoh-tokoh pendidikan dibahas tidak hanya dari sisi biografi, tetapi juga dari gagasan utama, konteks lahirnya pemikiran, dan relevansi penerapannya dalam tantangan pendidikan kontemporer. Dengan memadukan aspek konseptual dan reflektif, buku ini mendorong pembaca untuk melihat pendidikan sebagai proses yang adaptif terhadap zaman serta menekankan pentingnya peran pendidik dalam merancang pembelajaran bermakna. Secara keseluruhan, buku ini berguna sebagai referensi bagi mahasiswa pendidikan, calon guru, serta pembaca umum yang membutuhkan pemahaman dasar mengenai teori pendidikan dan implikasinya dalam praktik.",
+        },
+        {
+          id: "b3",
+          title: "Hukum Tata Ruang",
+          author: "Referensi Hukum",
+          category: "Hukum",
+          cover: "assets/hukum-tata-ruang.jpeg",
+          stock: 1,
+          rack: "Rak D-05",
+          short: "Regulasi & penataan ruang.",
+          desc:
+          "Buku Hukum Tata Ruang membahas kerangka hukum dan kebijakan penataan ruang sebagai instrumen penting dalam pengelolaan wilayah yang berkelanjutan. Buku ini menguraikan konsep dasar tata ruang, termasuk prinsip perencanaan, zonasi, serta hubungan antara pemanfaatan ruang dengan kepentingan publik, lingkungan, dan pembangunan. Pembaca diperkenalkan pada aspek regulasi yang mengatur penyusunan rencana tata ruang, kewenangan lembaga, mekanisme perizinan, hingga pengawasan dan penegakan hukum atas pelanggaran pemanfaatan ruang. Tidak hanya menyajikan aturan normatif, buku ini juga menyoroti problem implementasi di lapangan, seperti konflik lahan, alih fungsi kawasan, pembangunan tanpa izin, serta dampak kebijakan terhadap masyarakat dan ekosistem. Melalui pendekatan analitis, buku ini menunjukkan bahwa tata ruang merupakan arena interaksi berbagai kepentingan, sehingga dibutuhkan harmonisasi antara aspek hukum, administrasi, dan perencanaan. Dengan demikian, buku ini relevan bagi mahasiswa hukum, perencanaan wilayah dan kota, serta pembuat kebijakan yang memerlukan pemahaman menyeluruh mengenai tata kelola ruang dari perspektif hukum dan praktik."
+        },
+        {
+          id: "b4",
+          title: "Laut Bercerita",
+          author: "Leila S. Chudori",
+          category: "Novel",
+          cover: "https://covers.openlibrary.org/b/isbn/9786024246945-L.jpg",
+          stock: 2,
+          rack: "Rak F-01",
+          short: "Novel tentang kehilangan & perjuangan.",
+          desc:
+          "Novel Laut Bercerita menghadirkan narasi yang mengangkat tema persahabatan, idealisme, kehilangan, dan ketahanan keluarga dalam menghadapi situasi sosial yang menekan. Kisah disampaikan melalui sudut pandang yang emosional dan manusiawi, memperlihatkan dinamika relasi antartokoh serta pergulatan batin ketika harapan harus berhadapan dengan realitas yang pahit. Novel ini tidak hanya berfungsi sebagai cerita personal, tetapi juga sebagai refleksi sosial atas peristiwa-peristiwa yang memengaruhi kehidupan individu dan komunitas. Dengan bahasa yang puitis namun tajam, pembaca diajak menyusuri jejak memori, trauma, dan upaya pencarian makna di tengah ketidakpastian. Struktur naratifnya memperlihatkan bagaimana kehilangan tidak hanya berwujud fisik, tetapi juga hadir dalam bentuk luka psikologis yang menetap dan diwariskan. Secara keseluruhan, novel ini menegaskan pentingnya solidaritas, keberanian, dan empati, serta menggambarkan bagaimana manusia berusaha bertahan dengan merawat ingatan dan harapan, bahkan ketika jawaban tidak selalu tersedia."
+        },
+        {
+          id: "b5",
+          title: "Cantik Itu Luka",
+          author: "Eka Kurniawan",
+          category: "Novel",
+          cover: "https://covers.openlibrary.org/b/isbn/9786020312583-L.jpg",
+          stock: 4,
+          rack: "Rak F-03",
+          short: "Novel epik realisme magis.",
+          desc:
+          "Cantik Itu Luka merupakan novel epik yang memadukan realisme magis, satire sosial, tragedi keluarga, dan penggalan sejarah dalam satu narasi yang berlapis. Cerita berkembang melalui tokoh-tokoh yang kompleks dengan masa lalu yang penuh luka, menghadirkan potret kehidupan yang dipengaruhi oleh kekuasaan, kekerasan, dan ketimpangan sosial. Dengan gaya penceritaan yang lincah, novel ini memperlihatkan bagaimana sejarah dan trauma kolektif bertransformasi menjadi konflik personal yang terus berulang dari generasi ke generasi. Elemen magis hadir bukan sekadar ornamen, melainkan sebagai simbol untuk menegaskan absurditas, ironi, dan intensitas luka yang sulit dijelaskan secara realistis. Novel ini menyoroti tema-tema seperti tubuh, kehormatan, cinta, dendam, serta bagaimana perempuan sering menjadi pusat pertarungan moral dan sosial. Melalui struktur cerita yang luas dan detail, pembaca diajak memahami bahwa “luka” bukan hanya pengalaman individu, tetapi juga konsekuensi sosial dari sejarah dan sistem yang menindas. Novel ini relevan sebagai karya sastra yang menggugah, sekaligus sarana refleksi atas kemanusiaan dan sejarah."
+        },
+        {
+          id: "b6",
+          title: "Atomic Habits",
+          author: "James Clear",
+          category: "Psikologi",
+          cover: "https://covers.openlibrary.org/b/isbn/9786020633176-L.jpg",
+          stock: 2,
+          rack: "Rak B-04",
+          short: "Membangun kebiasaan kecil berdampak besar.",
+          desc:
+          "Atomic Habits membahas perubahan perilaku melalui strategi pembangunan kebiasaan kecil yang konsisten sebagai dasar transformasi jangka panjang. Buku ini menekankan bahwa peningkatan 1% yang dilakukan terus-menerus dapat menghasilkan dampak besar, sehingga fokus utama diarahkan pada pembentukan sistem, bukan semata pencapaian tujuan. James Clear menguraikan mekanisme kebiasaan melalui siklus isyarat, keinginan, respons, dan hadiah, yang menjadi kerangka untuk memahami bagaimana kebiasaan terbentuk dan dapat dimodifikasi. Buku ini menawarkan metode praktis dengan empat hukum perubahan perilaku: membuat kebiasaan terlihat, menarik, mudah, dan memuaskan; serta kebalikannya untuk menghentikan kebiasaan buruk. Selain itu, buku ini menyoroti peran identitas—bahwa perubahan paling efektif terjadi ketika kebiasaan selaras dengan cara seseorang memandang dirinya. Dengan contoh nyata dan langkah yang dapat diterapkan, buku ini relevan bagi pembaca yang ingin meningkatkan produktivitas, disiplin belajar, kesehatan, maupun manajemen waktu. Secara keseluruhan, buku ini menjadi panduan aplikatif untuk membangun rutinitas yang berkelanjutan melalui desain lingkungan, konsistensi, dan penguatan motivasi internal."
+        },
+        {
+          id: "b7",
+          title: "Komunikasi Bisnis",
+          author: "Hery",
+          category: "Bisnis",
+          cover: "assets/komunikasi-bisnis.jpeg",
+          stock: 1,
+          rack: "Rak E-02",
+          short: "Komunikasi profesional di dunia kerja.",
+          desc:
+          "Buku Komunikasi Bisnis membahas komunikasi sebagai kompetensi inti dalam organisasi yang memengaruhi efektivitas kerja, pengambilan keputusan, dan kualitas hubungan profesional. Materi mencakup komunikasi tertulis dan lisan, seperti penyusunan email, memo, laporan, presentasi, serta komunikasi dalam rapat dan koordinasi tim. Buku ini menekankan pentingnya kejelasan pesan, ketepatan struktur informasi, pemilihan diksi yang sesuai, serta pemahaman audiens agar komunikasi tidak menimbulkan bias interpretasi. Selain itu, dibahas pula keterampilan negosiasi dan persuasi dalam konteks bisnis, termasuk strategi menyampaikan argumen, membangun kepercayaan, serta menjaga etika profesional. Buku ini memperlihatkan bahwa komunikasi bukan hanya pertukaran informasi, tetapi juga proses membentuk citra, membangun relasi, dan meminimalisasi konflik di lingkungan kerja. Dengan pendekatan praktis melalui contoh situasi bisnis dan pedoman etika, buku ini relevan bagi mahasiswa, calon profesional, dan pekerja yang membutuhkan keterampilan komunikasi yang efektif, terukur, dan sesuai budaya organisasi."
+        },
+        {
+          id: "b8",
+          title: "Kalkulus untuk Informatika (Panduan Python)",
+          author: "Erwin Budi Setiawan dkk.",
+          category: "Matematika",
+          cover: "assets/kalkulus-informatika.jpeg",
+          stock: 3,
+          rack: "Rak A-06",
+          short: "Limit, turunan, integral + penerapan.",
+          desc:
+          "Buku Kalkulus untuk Informatika (Panduan Python) menyajikan konsep kalkulus dengan orientasi penerapan dalam bidang komputasi dan informatika. Materi disusun mulai dari limit dan kontinuitas sebagai fondasi memahami perubahan, dilanjutkan pembahasan turunan dan aplikasinya untuk analisis laju perubahan, optimasi, dan pemodelan sederhana. Bagian integral membahas konsep akumulasi dan luas area, sekaligus keterkaitannya dengan pendekatan numerik dan interpretasi dalam konteks komputasi. Keunggulan buku ini terletak pada penyertaan contoh implementasi menggunakan Python untuk memvisualisasikan fungsi, mengeksplorasi pola, serta memvalidasi hasil perhitungan. Pendekatan ini membantu pembaca menjembatani pemahaman abstrak matematika dengan praktik pemrograman, sehingga lebih mudah dipahami dan relevan untuk kebutuhan studi seperti data science, machine learning, dan analisis algoritma. Dengan latihan bertahap dan penyajian yang sistematis, buku ini sesuai sebagai referensi perkuliahan sekaligus bahan belajar mandiri bagi mahasiswa informatika yang ingin menguatkan fondasi matematis melalui bantuan komputasi."
+        },
+      ];
+
+      // ===== Ambil selected_book dari localStorage =====
+      const selectedRaw = localStorage.getItem("selected_book");
+      let selectedBook = null;
+
+      try {
+        selectedBook = selectedRaw ? JSON.parse(selectedRaw) : null;
+      } catch (e) {
+        selectedBook = null;
+      }
+
+      // fallback: kalau tidak ada
+      if (!selectedBook || !selectedBook.id) selectedBook = BOOKS[0];
+
+      // merge dengan master biar pasti lengkap
+      const master = BOOKS.find((b) => b.id === selectedBook.id) || BOOKS[0];
+      selectedBook = { ...master, ...selectedBook };
+
+      // ===== Render detail =====
+      document.getElementById("bookTitle").textContent = selectedBook.title;
+      document.getElementById("bookAuthor").textContent = selectedBook.author;
+      document.getElementById("bookCategory").textContent = selectedBook.category;
+      document.getElementById("bookStock").textContent = String(selectedBook.stock);
+      document.getElementById("bookRack").textContent = selectedBook.rack;
+
+      document.getElementById("bookShort").textContent = selectedBook.short;
+      document.getElementById("bookCover").src = selectedBook.cover;
+      document.getElementById("bookCover").setAttribute("data-fallback", FALLBACK);
+
+      // ===== Toggle deskripsi (ringkas vs full) =====
+      let expanded = false;
+      const descEl = document.getElementById("bookDesc");
+      const toggleBtn = document.getElementById("toggleBtn");
+
+      const fullDesc = selectedBook.desc || "";
+      const firstPara = fullDesc.split("\n\n")[0] || fullDesc;
+      const shortDesc = (firstPara || "").trim() + "\n\n(klik 'Baca Selengkapnya' untuk lanjut...)";
+
+      descEl.textContent = shortDesc;
+
+      toggleBtn.addEventListener("click", () => {
+        expanded = !expanded;
+        descEl.textContent = expanded ? fullDesc : shortDesc;
+        toggleBtn.textContent = expanded ? "Tutup ▴" : "Baca Selengkapnya ▾";
+      });
+
+      // ===== Pinjam Sekarang (dummy) =====
+      document.getElementById("borrowBtn").addEventListener("click", () => {
+        if (selectedBook.stock <= 0) {
+          showAlert("error", "Gagal meminjam! Stok buku habis.");
+          return;
+        }
+
+        const borrowed = JSON.parse(localStorage.getItem("borrowed_books") || "[]");
+        const already = borrowed.find((x) => x.id === selectedBook.id);
+
+        if (already) {
+          showAlert("warn", "Kamu sudah meminjam buku ini (demo).");
+          return;
+        }
+
+        borrowed.push({
+          id: selectedBook.id,
+          title: selectedBook.title,
+          date: new Date().toLocaleDateString("id-ID"),
+        });
+
+        localStorage.setItem("borrowed_books", JSON.stringify(borrowed));
+        showAlert("success", "Berhasil meminjam buku! (demo) Cek dashboard / riwayat.");
+      });
+
+      // ===== Render rekomendasi (4 buku lain) =====
+      const reco = BOOKS.filter((b) => b.id !== selectedBook.id).slice(0, 4);
+      const recoGrid = document.getElementById("recoGrid");
+
+      recoGrid.innerHTML = reco
+        .map((b) => {
+          return `
+            <div class="rounded-2xl bg-white/95 p-4 shadow-md ring-1 ring-black/10">
+              <div class="mx-auto flex h-40 w-28 items-center justify-center rounded-xl border border-slate-200 bg-white">
+                <img
+                  src="${b.cover}"
+                  data-fallback="${FALLBACK}"
+                  alt="${b.title}"
+                  class="h-32 w-24 rounded-lg object-cover"
+                />
+              </div>
+
+              <div class="mt-4 flex justify-center">
+                <button
+                  data-id="${b.id}"
+                  class="recoBtn rounded bg-[#0b3a5a] px-6 py-2 text-xs font-semibold text-white"
+                >
+                  Baca Buku
+                </button>
+              </div>
+            </div>
+          `;
+        })
+        .join("");
+
+      applyFallbackImages(document);
+
+      document.querySelectorAll(".recoBtn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const id = btn.getAttribute("data-id");
+          const book = BOOKS.find((x) => x.id === id);
+          localStorage.setItem("selected_book", JSON.stringify(book));
+          window.location.reload();
+        });
+      });
+    </script>
+  </body>
+</html>

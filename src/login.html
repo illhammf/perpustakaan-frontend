@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Perpustakaan Kampus</title>
+
+    <!-- Tailwind build -->
+    <link rel="stylesheet" href="../dist/style.css" />
+  </head>
+
+  <body class="bg-white text-slate-900">
+    <!-- Simple top spacing (biar mirip gambar: kosong atas, fokus konten tengah) -->
+    <main class="mx-auto flex min-h-screen max-w-6xl items-center px-6 py-10">
+      <div class="grid w-full items-center gap-10 md:grid-cols-2">
+        <!-- LEFT: Illustration -->
+        <section class="flex flex-col items-center justify-center">
+          <div class="relative flex items-center justify-center">
+            <!-- Lingkaran orange -->
+            <div class="h-60 w-60 rounded-full bg-[#ffffff]"></div>
+            <!-- NOTE: GANTI GAMBAR ILUSTRASI DI SINI (PNG/JPG kamu) -->
+            <!-- Contoh: src="assets/login-illustration.png" -->
+            <img
+              src="login-image.png"
+              alt="Ilustrasi login"
+              class="absolute h-80 w-80 object-contain"
+            />
+          </div>
+
+          <p class="mt-6 max-w-xs text-center text-xs text-slate-600">
+            Access your favorite books easily with <br />
+            the Campus Library
+          </p>
+        </section>
+
+        <!-- RIGHT: Form -->
+        <section class="mx-auto w-full max-w-md">
+          <div class="text-center">
+            <h1 class="text-3xl font-extrabold">Hello!</h1>
+            <p class="mt-1 text-xs text-slate-600">Create an account</p>
+          </div>
+
+          <!-- Alert Box -->
+          <div
+            id="alert"
+            class="mt-5 hidden rounded-lg border px-4 py-3 text-sm"
+            role="alert"
+          ></div>
+
+          <form id="loginForm" class="mt-5 space-y-4">
+            <div>
+              <input
+                id="email"
+                type="text"
+                placeholder="Email"
+                class="w-full rounded-full border border-slate-300 px-4 py-3 text-sm outline-none focus:border-[#0b3a5a]"
+              />
+            </div>
+
+            <div>
+              <input
+                id="password"
+                type="password"
+                placeholder="Password"
+                class="w-full rounded-full border border-slate-300 px-4 py-3 text-sm outline-none focus:border-[#0b3a5a]"
+              />
+            </div>
+
+            <div class="flex justify-end">
+              <button
+                type="button"
+                id="forgotBtn"
+                class="text-xs text-slate-500 hover:text-slate-700"
+              >
+                Forget password?
+              </button>
+            </div>
+
+            <button
+              type="submit"
+              class="w-full rounded-full border border-slate-400 bg-white py-3 text-sm font-semibold hover:bg-slate-50"
+            >
+              Sign in
+            </button>
+
+            <button
+              type="button"
+              id="googleBtn"
+              class="w-full rounded-full border border-slate-400 bg-white py-3 text-sm font-semibold hover:bg-slate-50"
+            >
+              Sign in with google
+            </button>
+
+            <!-- kecil: link balik ke home biar nyambung antar halaman -->
+            <div class="pt-2 text-center text-xs text-slate-500">
+              Kembali ke
+              <a href="index.html" class="font-semibold text-[#0b3a5a] hover:underline">
+                Home
+              </a>
+            </div>
+          </form>
+
+          <!-- Hint akun dummy -->
+          <div class="mt-6 rounded-lg bg-slate-50 p-4 text-xs text-slate-600">
+            <div class="font-semibold text-slate-800">==== Akun dummy untuk tes: ====</div>
+            <div class="mt-2 space-y-1">
+              <div>
+                <span class="font-semibold">Mahasiswa:</span> mhs@kampus.com /
+                <span class="font-semibold">123</span>
+              </div>
+              <div>
+                <span class="font-semibold">Admin:</span> admin@kampus.com /
+                <span class="font-semibold">admin</span>
+              </div>
+              <div>
+                <span class="font-semibold">Petugas:</span> petugas@kampus.com /
+                <span class="font-semibold">petugas</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script>
+      // ====== LOGIN DUMMY (untuk kebutuhan testing Black Box) ======
+      // bisa ubah akun dummy ini sesuai kebutuhan.
+      const USERS = [
+        { email: "mhs@kampus.com", password: "123", role: "mahasiswa" },
+        { email: "admin@kampus.com", password: "admin", role: "admin" },
+        { email: "petugas@kampus.com", password: "petugas", role: "pustakawan" },
+      ];
+
+      const form = document.getElementById("loginForm");
+      const alertBox = document.getElementById("alert");
+      const emailEl = document.getElementById("email");
+      const passEl = document.getElementById("password");
+
+      function showAlert(type, message) {
+        alertBox.classList.remove("hidden");
+        alertBox.textContent = message;
+
+        // reset style
+        alertBox.className = "mt-5 rounded-lg border px-4 py-3 text-sm";
+
+        if (type === "success") {
+          alertBox.classList.add("border-green-300", "bg-green-50", "text-green-700");
+        } else if (type === "error") {
+          alertBox.classList.add("border-red-300", "bg-red-50", "text-red-700");
+        } else {
+          alertBox.classList.add("border-yellow-300", "bg-yellow-50", "text-yellow-800");
+        }
+      }
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const email = emailEl.value.trim();
+        const password = passEl.value.trim();
+
+        // 1) Validasi field kosong (untuk test case "field wajib diisi")
+        if (!email || !password) {
+          showAlert("warn", 'Pesan: "field wajib diisi"');
+          return;
+        }
+
+        // 2) Cek akun
+        const found = USERS.find((u) => u.email === email && u.password === password);
+
+        // 3) Jika benar -> sukses & redirect
+        if (found) {
+          // simpan role (optional, buat dashboard nanti bisa dibaca)
+          localStorage.setItem("role", found.role);
+          localStorage.setItem("user_email", found.email);
+
+          showAlert("success", "Login berhasil! Mengarahkan ke dashboard...");
+
+          setTimeout(() => {
+            window.location.href = "dashboard.html";
+          }, 900);
+        } else {
+          // 4) Jika salah -> gagal
+          showAlert("error", "Login gagal! Email atau password salah.");
+        }
+      });
+
+      // tombol forgot password (dummy)
+      document.getElementById("forgotBtn").addEventListener("click", () => {
+        showAlert("warn", "Fitur 'Forgot password' belum tersedia (ini hanya demo).");
+      });
+
+      // tombol google (dummy)
+      document.getElementById("googleBtn").addEventListener("click", () => {
+        showAlert("warn", "Login Google belum tersedia (ini hanya demo).");
+      });
+    </script>
+  </body>
+</html>

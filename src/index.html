@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perpustakaan Kampus - Landing</title>
+
+    <!-- Tailwind build -->
+    <link rel="stylesheet" href="../dist/style.css" />
+  </head>
+
+  <body class="bg-white text-slate-900">
+    <!-- NAVBAR -->
+    <header class="bg-[#0b3a5a]">
+      <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+        <a href="index.html" class="text-xl font-semibold text-white">Kelompok 1</a>
+
+        <nav class="hidden items-center gap-8 text-sm text-white/80 md:flex">
+          <a href="index.html" class="hover:text-white">Home</a>
+          <a href="search.html" class="hover:text-white">Search</a>
+          <a href="dashboard.html" class="hover:text-white">Dashboard</a>
+          <a href="#about" class="hover:text-white">About</a>
+        </nav>
+
+        <div class="flex items-center gap-4">
+          <a href="login.html" class="text-sm text-white/80 hover:text-white">Sign in</a>
+          <a
+            href="login.html"
+            class="rounded-full bg-[#f59e0b] px-5 py-2 text-sm font-semibold text-[#0b3a5a] hover:brightness-95"
+          >
+            Login
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="relative bg-white">
+      <div class="mx-auto grid max-w-6xl items-center gap-10 px-6 py-12 md:grid-cols-2">
+        <!-- Left -->
+        <div>
+          <h1 class="font-serif text-4xl font-semibold leading-tight md:text-5xl">
+            Ayo Baca Buku <br />
+            di Perpustakaan
+          </h1>
+
+          <p class="mt-4 max-w-md text-sm leading-relaxed text-slate-500">
+            Mari kita manfaatkan waktu luang kita dengan mengunjungi perpustakaan, supaya kita dapat
+            memperoleh jendela dunia bagi siapa pun yang haus akan pengetahuan.
+          </p>
+
+          <div class="mt-7 flex items-center gap-6">
+            <a
+              href="login.html"
+              class="rounded-full bg-[#f59e0b] px-10 py-3 text-sm font-semibold text-[#0b3a5a] hover:brightness-95"
+            >
+              Login
+            </a>
+
+            <a href="login.html" class="text-sm text-slate-500 hover:text-slate-700">Masuk</a>
+          </div>
+        </div>
+
+        <!-- Right (stack cover buku) -->
+        <div class="relative flex justify-center md:justify-end">
+          <!-- STAGE -->
+          <div class="relative h-[520px] w-[520px]">
+            <!-- Lingkaran orange -->
+            <div
+              class="absolute left-[150px] top-[110px] h-[320px] w-[320px] rounded-full bg-[#f59e0b]"
+            ></div>
+
+            <!-- 1) KOMUNIKASI BISNIS (atas kiri) -->
+            <img
+              class="heroBook absolute left-[190px] top-[20px] z-50 h-[150px] w-[120px] -rotate-2 rounded-2xl object-cover shadow-2xl"
+              data-book-id="b7"
+              src="assets/komunikasi-bisnis.jpeg"
+              data-fallback="https://placehold.co/240x320/png?text=Komunikasi%20Bisnis"
+              alt="Komunikasi Bisnis"
+            />
+
+            <!-- 2) CANTIK ITU LUKA (atas kanan) -->
+            <img
+              class="heroBook absolute left-[330px] top-[35px] z-50 h-[150px] w-[120px] rotate-2 rounded-2xl object-cover shadow-2xl"
+              data-book-id="b5"
+              src="https://covers.openlibrary.org/b/isbn/9786020312583-L.jpg"
+              data-fallback="https://placehold.co/240x320/png?text=Cantik%20Itu%20Luka"
+              alt="Cantik Itu Luka"
+            />
+
+            <!-- 3) LAUT BERCERITA (tengah kiri, depan & besar) -->
+            <img
+              class="heroBook absolute left-[40px] top-[190px] z-60 h-[230px] w-[175px] -rotate-1 rounded-3xl object-cover shadow-2xl"
+              data-book-id="b4"
+              src="https://covers.openlibrary.org/b/isbn/9786024246945-L.jpg"
+              data-fallback="https://placehold.co/300x420/png?text=Laut%20Bercerita"
+              alt="Laut Bercerita"
+            />
+
+            <!-- 4) PERSPEKTIF PENDIDIKAN (tengah kanan) -->
+            <img
+              class="heroBook absolute left-[285px] top-[200px] z-40 h-[180px] w-[145px] rotate-1 rounded-3xl object-cover shadow-2xl"
+              data-book-id="b2"
+              src="assets/perspektif-pendidikan.jpeg"
+              data-fallback="https://placehold.co/260x360/png?text=Perspektif%20Pendidikan"
+              alt="Perspektif Pendidikan"
+            />
+
+            <!-- 5) KALKULUS UNTUK INFORMATIKA (bawah kanan) -->
+            <img
+              class="heroBook absolute left-[310px] top-[390px] z-30 h-[170px] w-[135px] rotate-1 rounded-3xl object-cover shadow-2xl"
+              data-book-id="b8"
+              src="assets/kalkulus-informatika.jpeg"
+              data-fallback="https://placehold.co/260x360/png?text=Kalkulus%20Informatika"
+              alt="Kalkulus untuk Informatika"
+            />
+
+            <!-- 6) MAHIR HTML CSS JS (bawah kiri kecil) -->
+            <img
+              class="heroBook absolute left-[150px] top-[420px] z-20 h-[150px] w-[120px] -rotate-2 rounded-3xl object-cover shadow-2xl"
+              data-book-id="b1"
+              src="assets/mahir-html-css-js.jpeg"
+              data-fallback="https://placehold.co/240x320/png?text=Mahir%20HTML%20CSS%20JS"
+              alt="Mahir HTML CSS JS"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUSTED BY BAR -->
+    <section class="bg-[#0b3a5a]">
+      <div class="mx-auto max-w-6xl px-6 py-6">
+        <div class="mt-4 text-center text-[10px] tracking-[0.28em] text-white/70">TRUSTED BY</div>
+
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <div class="flex h-10 w-28 items-center justify-center rounded bg-white text-xs font-semibold text-slate-700">
+            UEU
+          </div>
+          <div class="flex h-10 w-28 items-center justify-center rounded bg-white text-xs font-semibold text-slate-700">
+            Fasilkom UEU
+          </div>
+          <div class="flex h-10 w-28 items-center justify-center rounded bg-white text-xs font-semibold text-slate-700">
+            Perpustakaan
+          </div>
+          <div class="flex h-10 w-28 items-center justify-center rounded bg-white text-xs font-semibold text-slate-700">
+            Kampus Tangerang
+          </div>
+          <div class="flex h-10 w-28 items-center justify-center rounded bg-white text-xs font-semibold text-slate-700">
+            Kemahasiswaan
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FAVORIT BUKU -->
+    <section class="relative overflow-hidden bg-gradient-to-b from-[#0b3a5a] to-[#87a6b6]">
+      <div class="absolute -left-24 top-32 h-[520px] w-[520px] rounded-full bg-[#f59e0b]"></div>
+
+      <div class="relative mx-auto max-w-6xl px-6 py-14">
+        <div class="text-center">
+          <h2 class="mt-2 font-serif text-4xl font-semibold text-white md:text-5xl">
+            Favorit Buku <br />
+            Untuk Dibaca
+          </h2>
+          <p class="mx-auto mt-4 max-w-xl text-xs text-white/75">
+            Anda bisa mencari buku favorit dan rekomendasi anda melalui pencarian lainnya
+          </p>
+        </div>
+
+        <!-- 8 buku -->
+        <div class="mt-10 grid gap-6 md:grid-cols-4">
+          <!-- b1 -->
+          <a href="book.html" data-book-id="b1" class="favBook rounded-xl bg-white/95 p-4 shadow-lg ring-1 ring-black/10 hover:bg-white">
+            <img
+              src="assets/mahir-html-css-js.jpeg"
+              data-fallback="https://placehold.co/240x320/png?text=Mahir%20HTML%20CSS%20JS"
+              alt="Mahir HTML CSS JS"
+              class="mx-auto h-32 w-24 rounded-md object-cover"
+            />
+            <div class="mt-4 flex justify-center">
+              <span class="rounded bg-[#0b3a5a] px-5 py-2 text-xs font-semibold text-white">Baca Buku</span>
+            </div>
+          </a>
+
+          <!-- b2 -->
+          <a href="book.html" data-book-id="b2" class="favBook rounded-xl bg-white/95 p-4 shadow-lg ring-1 ring-black/10 hover:bg-white">
+            <img
+              src="assets/perspektif-pendidikan.jpeg"
+              data-fallback="https://placehold.co/240x320/png?text=Perspektif%20Pendidikan"
+              alt="Perspektif Pendidikan"
+              class="mx-auto h-32 w-24 rounded-md object-cover"
+            />
+            <div class="mt-4 flex justify-center">
+              <span class="rounded bg-[#0b3a5a] px-5 py-2 text-xs font-semibold text-white">Baca Buku</span>
+            </div>
+          </a>
+
+          <!-- b3 (pakai placeholder dulu) -->
+          <a href="book.html" data-book-id="b3" class="favBook rounded-xl bg-white/95 p-4 shadow-lg ring-1 ring-black/10 hover:bg-white">
+            <img
+              src="assets/hukum-tata-ruang.jpeg"
+              data-fallback="https://placehold.co/240x320/png?text=Hukum%20Tata%20Ruang"
+              alt="Hukum Tata Ruang"
+              class="mx-auto h-32 w-24 rounded-md object-cover"
+            />
+            <div class="mt-4 flex justify-center">
+              <span class="rounded bg-[#0b3a5a] px-5 py-2 text-xs font-semibold text-white">Baca Buku</span>
+            </div>
+          </a>
+
+          <!-- b4 -->
+          <a href="book.html" data-book-id="b4" class="favBook rounded-xl bg-white/95 p-4 shadow-lg ring-1 ring-black/10 hover:bg-white">
+            <img
+              src="https://covers.openlibrary.org/b/isbn/9786024246945-L.jpg"
+              data-fallback="https://placehold.co/240x320/png?text=Laut%20Bercerita"
+              alt="Laut Bercerita"
+              class="mx-auto h-32 w-24 rounded-md object-cover"
+            />
+            <div class="mt-4 flex justify-center">
+              <span class="rounded bg-[#0b3a5a] px-5 py-2 text-xs font-semibold text-white">Baca Buku</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="mt-6 grid gap-6 md:grid-cols-4">
+          <!-- b5 -->
+          <a href="book.html" data-book-id="b5" class="favBook rounded-xl bg-white/95 p-4 shadow-lg ring-1 ring-black/10 hover:bg-white">
+            <img
+              src="https://covers.openlibrary.org/b/isbn/9786020312583-L.jpg"
+              data-fallback="https://placehold.co/240x320/png?text=Cantik%20Itu%20Luka"
+              alt="Cantik Itu Luka"
+              class="mx-auto h-32 w-24 rounded-md object-cover"
+            />
+            <div class="mt-4 flex justify-center">
+              <span class="rounded bg-[#0b3a5a] px-5 py-2 text-xs font-semibold text-white">Baca Buku</span>
+            </div>
+          </a>
+
+          <!-- b6 -->
+          <a href="book.html" data-book-id="b6" class="favBook rounded-xl bg-white/95 p-4 shadow-lg ring-1 ring-black/10 hover:bg-white">
+            <img
+              src="https://covers.openlibrary.org/b/isbn/9786020633176-L.jpg"
+              data-fallback="https://placehold.co/240x320/png?text=Atomic%20Habits"
+              alt="Atomic Habits"
+              class="mx-auto h-32 w-24 rounded-md object-cover"
+            />
+            <div class="mt-4 flex justify-center">
+              <span class="rounded bg-[#0b3a5a] px-5 py-2 text-xs font-semibold text-white">Baca Buku</span>
+            </div>
+          </a>
+
+          <!-- b7 -->
+          <a href="book.html" data-book-id="b7" class="favBook rounded-xl bg-white/95 p-4 shadow-lg ring-1 ring-black/10 hover:bg-white">
+            <img
+              src="assets/komunikasi-bisnis.jpeg"
+              data-fallback="https://placehold.co/240x320/png?text=Komunikasi%20Bisnis"
+              alt="Komunikasi Bisnis"
+              class="mx-auto h-32 w-24 rounded-md object-cover"
+            />
+            <div class="mt-4 flex justify-center">
+              <span class="rounded bg-[#0b3a5a] px-5 py-2 text-xs font-semibold text-white">Baca Buku</span>
+            </div>
+          </a>
+
+          <!-- b8 -->
+          <a href="book.html" data-book-id="b8" class="favBook rounded-xl bg-white/95 p-4 shadow-lg ring-1 ring-black/10 hover:bg-white">
+            <img
+              src="assets/kalkulus-informatika.jpeg"
+              data-fallback="https://placehold.co/240x320/png?text=Kalkulus%20Informatika"
+              alt="Kalkulus Informatika"
+              class="mx-auto h-32 w-24 rounded-md object-cover"
+            />
+            <div class="mt-4 flex justify-center">
+              <span class="rounded bg-[#0b3a5a] px-5 py-2 text-xs font-semibold text-white">Baca Buku</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="mt-8 flex justify-center">
+          <a
+            href="search.html"
+            class="rounded-md bg-white px-8 py-2 text-xs font-semibold text-slate-900 shadow hover:bg-white/90"
+          >
+            Lihat Lebih Banyak
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="bg-[#0b3a5a]">
+      <div class="mx-auto max-w-6xl px-6 py-14 text-center">
+        <div class="text-[10px] tracking-[0.28em] text-white/60">FAVORIT BOOK SECTION</div>
+        <h3 class="mt-3 font-serif text-4xl font-semibold text-white md:text-5xl">
+          Ayo Baca Buku <br />
+          di Perpustakaan
+        </h3>
+
+        <div class="mt-6">
+          <a
+            href="search.html"
+            class="inline-block rounded bg-[#f59e0b] px-10 py-3 text-xs font-semibold text-[#0b3a5a] hover:brightness-95"
+          >
+            Baca Buku
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-white">
+      <div class="mx-auto max-w-6xl px-6 py-10">
+        <div class="grid gap-10 md:grid-cols-3">
+          <div>
+            <div class="text-sm font-semibold">Kelompok 1</div>
+            <p class="mt-3 max-w-xs text-xs text-slate-500">
+              Ayo luangin sedikit waktu buat baca buku, biar pikiran makin luas dan hati makin tenang.
+            </p>
+
+            <div class="mt-4 flex items-center gap-4 text-slate-500">
+              <!-- Instagram -->
+              <a href="#" class="inline-flex h-8 w-8 items-center justify-center rounded border hover:bg-slate-50" aria-label="Instagram">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Z" stroke="currentColor" stroke-width="2"/>
+                  <path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z" stroke="currentColor" stroke-width="2"/>
+                  <path d="M17.5 6.5h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+              </a>
+
+              <!-- Facebook -->
+              <a href="#" class="inline-flex h-8 w-8 items-center justify-center rounded border hover:bg-slate-50" aria-label="Facebook">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v3H7v3h3v6h3v-6h3l1-3h-4v-3c0-.6.4-1 1-1Z" fill="currentColor"/>
+                </svg>
+              </a>
+
+              <!-- YouTube -->
+              <a href="#" class="inline-flex h-8 w-8 items-center justify-center rounded border hover:bg-slate-50" aria-label="YouTube">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M21.8 8.1a3 3 0 0 0-2.1-2.1C17.9 5.5 12 5.5 12 5.5s-5.9 0-7.7.5A3 3 0 0 0 2.2 8.1 31.6 31.6 0 0 0 2 12a31.6 31.6 0 0 0 .2 3.9 3 3 0 0 0 2.1 2.1c1.8.5 7.7.5 7.7.5s5.9 0 7.7-.5a3 3 0 0 0 2.1-2.1A31.6 31.6 0 0 0 22 12a31.6 31.6 0 0 0-.2-3.9Z" fill="currentColor"/>
+                  <path d="M10 15.5v-7l6 3.5-6 3.5Z" fill="white"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <div class="text-sm font-semibold">Information</div>
+            <ul class="mt-3 space-y-1 text-xs text-slate-500">
+              <li><a href="index.html" class="hover:text-slate-700">Home</a></li>
+              <li><a href="search.html" class="hover:text-slate-700">Search</a></li>
+              <li><a href="dashboard.html" class="hover:text-slate-700">Dashboard</a></li>
+              <li><a href="search.html" class="hover:text-slate-700">Kategori Buku</a></li>
+              <li><a href="#faq" class="hover:text-slate-700">FAQ</a></li>
+            </ul>
+          </div>
+
+          <div class="md:text-right">
+            <div class="text-sm font-semibold">Jam Operasional</div>
+            <p class="mt-3 text-xs text-slate-500">
+              Senin–Jumat: 08.00–16.00 <br />
+              Sabtu: 09.00–14.00 <br />
+              Minggu: Tutup
+            </p>
+
+            <p class="mt-6 text-xs text-slate-500">
+              Jl. Citra Raya Boulevard Blok S No.01 25, Kabupaten Tangerang <br />
+              Telp: (022) 08010803 <br />
+              Email: admin@perpustakaan.id
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-10 border-t pt-4 text-center text-[10px] text-slate-400">
+          © 2026 Perpustakaan Digital. All Rights Reserved.
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // ====== FALLBACK IMAGE (biar gak ada cover kosong) ======
+      document.querySelectorAll("img[data-fallback]").forEach((img) => {
+        img.addEventListener(
+          "error",
+          () => {
+            img.src = img.getAttribute("data-fallback");
+          },
+          { once: true }
+        );
+      });
+
+      // ====== MASTER DATA BUKU (nyambung ke book.html) ======
+      const BOOKS = [
+        {
+          id: "b1",
+          title: "Mahir Pemrograman dengan HTML, CSS, dan JavaScript",
+          author: "Faishal Nafi' Rabbani",
+          category: "Pemrograman",
+          cover: "https://covers.openlibrary.org/b/isbn/9786235154237-L.jpg",
+          stock: 3,
+          rack: "Rak A-01",
+          short: "Buku pengantar web development untuk pemula.",
+          desc:
+            "Buku ini membahas fondasi pembuatan website: struktur HTML, styling CSS, dan logika JavaScript. Cocok untuk pemula yang ingin memahami front-end secara bertahap hingga bisa membuat halaman web interaktif.",
+        },
+        {
+          id: "b2",
+          title: "Perspektif Pendidikan dalam Bingkai Ilmu dan Tokoh",
+          author: "Kurniawan",
+          category: "Pendidikan",
+          cover: "https://covers.openlibrary.org/b/isbn/9786230217821-L.jpg",
+          stock: 2,
+          rack: "Rak C-02",
+          short: "Teori pendidikan & tokoh pendidikan.",
+          desc:
+            "Mengulas sistem pendidikan nasional, perspektif pendidikan, pemikiran tokoh pendidikan, serta dasar filsafat pendidikan.",
+        },
+        {
+          id: "b3",
+          title: "Hukum Tata Ruang",
+          author: "Referensi Hukum",
+          category: "Hukum",
+          cover: "https://placehold.co/480x640/png?text=Hukum%20Tata%20Ruang",
+          stock: 1,
+          rack: "Rak D-05",
+          short: "Regulasi & penataan ruang.",
+          desc:
+            "Membahas konsep dasar penataan ruang, regulasi, kelembagaan, dan contoh kasus. (Nanti kalau kamu kasih ISBN, cover bisa dibuat real).",
+        },
+        {
+          id: "b4",
+          title: "Laut Bercerita",
+          author: "Leila S. Chudori",
+          category: "Novel",
+          cover: "https://covers.openlibrary.org/b/isbn/9786024246945-L.jpg",
+          stock: 2,
+          rack: "Rak F-01",
+          short: "Novel tentang kehilangan & perjuangan.",
+          desc:
+            "Bertutur tentang kisah keluarga yang kehilangan, sahabat yang merasakan kekosongan, dan upaya mencari kejelasan tentang orang-orang yang hilang.",
+        },
+        {
+          id: "b5",
+          title: "Cantik Itu Luka",
+          author: "Eka Kurniawan",
+          category: "Novel",
+          cover: "https://covers.openlibrary.org/b/isbn/9786020312583-L.jpg",
+          stock: 4,
+          rack: "Rak F-03",
+          short: "Novel epik realisme magis.",
+          desc:
+            "Kisah keluarga dengan alur yang kaya, dibalut realisme magis dan potret sejarah. Penuh simbol, satire, dan konflik.",
+        },
+        {
+          id: "b6",
+          title: "Atomic Habits",
+          author: "James Clear",
+          category: "Psikologi",
+          cover: "https://covers.openlibrary.org/b/isbn/9786020633176-L.jpg",
+          stock: 2,
+          rack: "Rak B-04",
+          short: "Membangun kebiasaan kecil berdampak besar.",
+          desc:
+            "Menjelaskan bagaimana kebiasaan terbentuk dan cara mengubahnya lewat langkah kecil yang konsisten, fokus pada sistem agar perubahan bertahan lama.",
+        },
+        {
+          id: "b7",
+          title: "Komunikasi Bisnis",
+          author: "Hery",
+          category: "Bisnis",
+          cover: "https://covers.openlibrary.org/b/isbn/9786237498810-L.jpg",
+          stock: 1,
+          rack: "Rak E-02",
+          short: "Komunikasi profesional di dunia kerja.",
+          desc:
+            "Membahas surat bisnis, rapat, laporan, negosiasi, dan etika komunikasi dalam organisasi.",
+        },
+        {
+          id: "b8",
+          title: "Kalkulus untuk Informatika (Panduan Python)",
+          author: "Erwin Budi Setiawan dkk.",
+          category: "Matematika",
+          cover: "https://covers.openlibrary.org/b/isbn/9786237131861-L.jpg",
+          stock: 3,
+          rack: "Rak A-06",
+          short: "Limit, turunan, integral + penerapan.",
+          desc:
+            "Membahas kalkulus untuk informatika dengan contoh penerapan dan panduan Python sebagai pendukung.",
+        },
+      ];
+
+      function setSelectedBookById(id) {
+        const book = BOOKS.find((b) => b.id === id);
+        if (book) localStorage.setItem("selected_book", JSON.stringify(book));
+      }
+
+      // Klik buku di HERO
+      document.querySelectorAll(".heroBook").forEach((img) => {
+        img.addEventListener("click", () => {
+          const id = img.getAttribute("data-book-id");
+          setSelectedBookById(id);
+          window.location.href = "book.html";
+        });
+      });
+
+      // Klik buku di FAVORIT
+      document.querySelectorAll(".favBook").forEach((card) => {
+        card.addEventListener("click", () => {
+          const id = card.getAttribute("data-book-id");
+          setSelectedBookById(id);
+        });
+      });
+    </script>
+  </body>
+</html>
