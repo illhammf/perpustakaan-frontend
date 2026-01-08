@@ -99,7 +99,7 @@
 
         <div class="mt-6 rounded-2xl bg-slate-50 p-6 leading-relaxed text-slate-700">
           <p id="bookDesc" class="whitespace-pre-line text-sm">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+            <!-- diisi dari JS -->
           </p>
         </div>
 
@@ -193,10 +193,8 @@
         alertBox.textContent = message;
         alertBox.className = "mt-6 rounded-lg border px-4 py-3 text-sm";
 
-        if (type === "success")
-          alertBox.classList.add("border-green-300", "bg-green-50", "text-green-700");
-        else if (type === "error")
-          alertBox.classList.add("border-red-300", "bg-red-50", "text-red-700");
+        if (type === "success") alertBox.classList.add("border-green-300", "bg-green-50", "text-green-700");
+        else if (type === "error") alertBox.classList.add("border-red-300", "bg-red-50", "text-red-700");
         else alertBox.classList.add("border-yellow-300", "bg-yellow-50", "text-yellow-800");
       }
 
@@ -204,8 +202,7 @@
       const userEmail = localStorage.getItem("user_email");
       if (userEmail) {
         const name = userEmail.split("@")[0];
-        document.getElementById("navName").textContent =
-          name.charAt(0).toUpperCase() + name.slice(1);
+        document.getElementById("navName").textContent = name.charAt(0).toUpperCase() + name.slice(1);
       }
 
       // ===== FALLBACK IMAGE =====
@@ -222,8 +219,7 @@
         });
       }
 
-      // ===== MASTER DATA (samain sama index/dashboard/search kamu) =====
-      // Cover: pakai yang kamu punya (assets/*.jpeg) + yang dari openlibrary
+      // ===== MASTER DATA =====
       const BOOKS = [
         {
           id: "b1",
@@ -234,8 +230,7 @@
           stock: 3,
           rack: "Rak A-01",
           short: "Buku pengantar web development untuk pemula.",
-          desc:
-            "Buku Mahir Pemrograman dengan HTML, CSS, dan JavaScript menyajikan pengantar komprehensif tentang pengembangan web dari konsep dasar hingga penerapan praktis pembuatan halaman yang interaktif. Pembahasan dimulai dari HTML sebagai fondasi struktur dokumen web, mencakup pemahaman elemen, atribut, form, serta prinsip semantic markup untuk menghasilkan halaman yang lebih terorganisir dan mudah diakses. Selanjutnya, CSS dibahas sebagai perangkat untuk membangun estetika dan tata letak, meliputi box model, tipografi, warna, hingga teknik layout modern seperti flexbox dan grid yang mendukung pembuatan desain responsif. Pada bagian JavaScript, buku ini menekankan aspek logika pemrograman dan interaksi pengguna melalui manipulasi DOM, event handling, dan pembuatan fungsi-fungsi sederhana yang sering digunakan dalam aplikasi web. Melalui pendekatan bertahap dan berorientasi praktik, buku ini memberikan latihan terstruktur serta studi kasus mini proyek sebagai sarana penguatan konsep. Dengan demikian, buku ini relevan sebagai rujukan pemula yang ingin membangun kompetensi dasar front-end serta memahami alur kerja pengembangan antarmuka web secara sistematis..",
+          desc: "Buku Mahir Pemrograman dengan HTML, CSS, dan JavaScript menyajikan pengantar komprehensif tentang pengembangan web dari konsep dasar hingga penerapan praktis pembuatan halaman yang interaktif. Pembahasan dimulai dari HTML sebagai fondasi struktur dokumen web, mencakup pemahaman elemen, atribut, form, serta prinsip semantic markup untuk menghasilkan halaman yang lebih terorganisir dan mudah diakses. Selanjutnya, CSS dibahas sebagai perangkat untuk membangun estetika dan tata letak, meliputi box model, tipografi, warna, hingga teknik layout modern seperti flexbox dan grid yang mendukung pembuatan desain responsif. Pada bagian JavaScript, buku ini menekankan aspek logika pemrograman dan interaksi pengguna melalui manipulasi DOM, event handling, dan pembuatan fungsi-fungsi sederhana yang sering digunakan dalam aplikasi web. Melalui pendekatan bertahap dan berorientasi praktik, buku ini memberikan latihan terstruktur serta studi kasus mini proyek sebagai sarana penguatan konsep. Dengan demikian, buku ini relevan sebagai rujukan pemula yang ingin membangun kompetensi dasar front-end serta memahami alur kerja pengembangan antarmuka web secara sistematis."
         },
         {
           id: "b2",
@@ -246,8 +241,7 @@
           stock: 2,
           rack: "Rak C-02",
           short: "Teori pendidikan & tokoh pendidikan.",
-          desc:
-            "Buku Perspektif Pendidikan dalam Bingkai Ilmu dan Tokoh memaparkan pendidikan sebagai disiplin ilmu yang berkembang melalui lintasan pemikiran, teori belajar, dan kontribusi tokoh-tokoh pendidikan dari berbagai era. Pembahasan menitikberatkan pada relasi antara pendidikan dan dinamika sosial-budaya, tujuan pendidikan, serta peran institusi pendidikan dalam membentuk kualitas manusia. Buku ini menguraikan berbagai perspektif pendidikan—baik filosofis, psikologis, maupun sosiologis yang memengaruhi pendekatan pembelajaran dan praktik pedagogis. Tokoh-tokoh pendidikan dibahas tidak hanya dari sisi biografi, tetapi juga dari gagasan utama, konteks lahirnya pemikiran, dan relevansi penerapannya dalam tantangan pendidikan kontemporer. Dengan memadukan aspek konseptual dan reflektif, buku ini mendorong pembaca untuk melihat pendidikan sebagai proses yang adaptif terhadap zaman serta menekankan pentingnya peran pendidik dalam merancang pembelajaran bermakna. Secara keseluruhan, buku ini berguna sebagai referensi bagi mahasiswa pendidikan, calon guru, serta pembaca umum yang membutuhkan pemahaman dasar mengenai teori pendidikan dan implikasinya dalam praktik.",
+          desc: "Buku Perspektif Pendidikan dalam Bingkai Ilmu dan Tokoh memaparkan pendidikan sebagai disiplin ilmu yang berkembang melalui lintasan pemikiran, teori belajar, dan kontribusi tokoh-tokoh pendidikan dari berbagai era. Pembahasan menitikberatkan pada relasi antara pendidikan dan dinamika sosial-budaya, tujuan pendidikan, serta peran institusi pendidikan dalam membentuk kualitas manusia. Buku ini menguraikan berbagai perspektif pendidikan—baik filosofis, psikologis, maupun sosiologis yang memengaruhi pendekatan pembelajaran dan praktik pedagogis. Tokoh-tokoh pendidikan dibahas tidak hanya dari sisi biografi, tetapi juga dari gagasan utama, konteks lahirnya pemikiran, dan relevansi penerapannya dalam tantangan pendidikan kontemporer. Dengan memadukan aspek konseptual dan reflektif, buku ini mendorong pembaca untuk melihat pendidikan sebagai proses yang adaptif terhadap zaman serta menekankan pentingnya peran pendidik dalam merancang pembelajaran bermakna. Secara keseluruhan, buku ini berguna sebagai referensi bagi mahasiswa pendidikan, calon guru, serta pembaca umum yang membutuhkan pemahaman dasar mengenai teori pendidikan dan implikasinya dalam praktik."
         },
         {
           id: "b3",
@@ -258,8 +252,7 @@
           stock: 1,
           rack: "Rak D-05",
           short: "Regulasi & penataan ruang.",
-          desc:
-          "Buku Hukum Tata Ruang membahas kerangka hukum dan kebijakan penataan ruang sebagai instrumen penting dalam pengelolaan wilayah yang berkelanjutan. Buku ini menguraikan konsep dasar tata ruang, termasuk prinsip perencanaan, zonasi, serta hubungan antara pemanfaatan ruang dengan kepentingan publik, lingkungan, dan pembangunan. Pembaca diperkenalkan pada aspek regulasi yang mengatur penyusunan rencana tata ruang, kewenangan lembaga, mekanisme perizinan, hingga pengawasan dan penegakan hukum atas pelanggaran pemanfaatan ruang. Tidak hanya menyajikan aturan normatif, buku ini juga menyoroti problem implementasi di lapangan, seperti konflik lahan, alih fungsi kawasan, pembangunan tanpa izin, serta dampak kebijakan terhadap masyarakat dan ekosistem. Melalui pendekatan analitis, buku ini menunjukkan bahwa tata ruang merupakan arena interaksi berbagai kepentingan, sehingga dibutuhkan harmonisasi antara aspek hukum, administrasi, dan perencanaan. Dengan demikian, buku ini relevan bagi mahasiswa hukum, perencanaan wilayah dan kota, serta pembuat kebijakan yang memerlukan pemahaman menyeluruh mengenai tata kelola ruang dari perspektif hukum dan praktik."
+          desc: "Buku Hukum Tata Ruang membahas kerangka hukum dan kebijakan penataan ruang sebagai instrumen penting dalam pengelolaan wilayah yang berkelanjutan. Buku ini menguraikan konsep dasar tata ruang, termasuk prinsip perencanaan, zonasi, serta hubungan antara pemanfaatan ruang dengan kepentingan publik, lingkungan, dan pembangunan. Pembaca diperkenalkan pada aspek regulasi yang mengatur penyusunan rencana tata ruang, kewenangan lembaga, mekanisme perizinan, hingga pengawasan dan penegakan hukum atas pelanggaran pemanfaatan ruang. Tidak hanya menyajikan aturan normatif, buku ini juga menyoroti problem implementasi di lapangan, seperti konflik lahan, alih fungsi kawasan, pembangunan tanpa izin, serta dampak kebijakan terhadap masyarakat dan ekosistem. Melalui pendekatan analitis, buku ini menunjukkan bahwa tata ruang merupakan arena interaksi berbagai kepentingan, sehingga dibutuhkan harmonisasi antara aspek hukum, administrasi, dan perencanaan."
         },
         {
           id: "b4",
@@ -270,8 +263,7 @@
           stock: 2,
           rack: "Rak F-01",
           short: "Novel tentang kehilangan & perjuangan.",
-          desc:
-          "Novel Laut Bercerita menghadirkan narasi yang mengangkat tema persahabatan, idealisme, kehilangan, dan ketahanan keluarga dalam menghadapi situasi sosial yang menekan. Kisah disampaikan melalui sudut pandang yang emosional dan manusiawi, memperlihatkan dinamika relasi antartokoh serta pergulatan batin ketika harapan harus berhadapan dengan realitas yang pahit. Novel ini tidak hanya berfungsi sebagai cerita personal, tetapi juga sebagai refleksi sosial atas peristiwa-peristiwa yang memengaruhi kehidupan individu dan komunitas. Dengan bahasa yang puitis namun tajam, pembaca diajak menyusuri jejak memori, trauma, dan upaya pencarian makna di tengah ketidakpastian. Struktur naratifnya memperlihatkan bagaimana kehilangan tidak hanya berwujud fisik, tetapi juga hadir dalam bentuk luka psikologis yang menetap dan diwariskan. Secara keseluruhan, novel ini menegaskan pentingnya solidaritas, keberanian, dan empati, serta menggambarkan bagaimana manusia berusaha bertahan dengan merawat ingatan dan harapan, bahkan ketika jawaban tidak selalu tersedia."
+          desc: "Novel Laut Bercerita menghadirkan narasi yang mengangkat tema persahabatan, idealisme, kehilangan, dan ketahanan keluarga dalam menghadapi situasi sosial yang menekan. Kisah disampaikan melalui sudut pandang yang emosional dan manusiawi, memperlihatkan dinamika relasi antartokoh serta pergulatan batin ketika harapan harus berhadapan dengan realitas yang pahit. Novel ini tidak hanya berfungsi sebagai cerita personal, tetapi juga sebagai refleksi sosial atas peristiwa-peristiwa yang memengaruhi kehidupan individu dan komunitas. Dengan bahasa yang puitis namun tajam, pembaca diajak menyusuri jejak memori, trauma, dan upaya pencarian makna di tengah ketidakpastian."
         },
         {
           id: "b5",
@@ -282,8 +274,7 @@
           stock: 4,
           rack: "Rak F-03",
           short: "Novel epik realisme magis.",
-          desc:
-          "Cantik Itu Luka merupakan novel epik yang memadukan realisme magis, satire sosial, tragedi keluarga, dan penggalan sejarah dalam satu narasi yang berlapis. Cerita berkembang melalui tokoh-tokoh yang kompleks dengan masa lalu yang penuh luka, menghadirkan potret kehidupan yang dipengaruhi oleh kekuasaan, kekerasan, dan ketimpangan sosial. Dengan gaya penceritaan yang lincah, novel ini memperlihatkan bagaimana sejarah dan trauma kolektif bertransformasi menjadi konflik personal yang terus berulang dari generasi ke generasi. Elemen magis hadir bukan sekadar ornamen, melainkan sebagai simbol untuk menegaskan absurditas, ironi, dan intensitas luka yang sulit dijelaskan secara realistis. Novel ini menyoroti tema-tema seperti tubuh, kehormatan, cinta, dendam, serta bagaimana perempuan sering menjadi pusat pertarungan moral dan sosial. Melalui struktur cerita yang luas dan detail, pembaca diajak memahami bahwa “luka” bukan hanya pengalaman individu, tetapi juga konsekuensi sosial dari sejarah dan sistem yang menindas. Novel ini relevan sebagai karya sastra yang menggugah, sekaligus sarana refleksi atas kemanusiaan dan sejarah."
+          desc: "Cantik Itu Luka merupakan novel epik yang memadukan realisme magis, satire sosial, tragedi keluarga, dan penggalan sejarah dalam satu narasi yang berlapis. Cerita berkembang melalui tokoh-tokoh yang kompleks dengan masa lalu yang penuh luka, menghadirkan potret kehidupan yang dipengaruhi oleh kekuasaan, kekerasan, dan ketimpangan sosial. Dengan gaya penceritaan yang lincah, novel ini memperlihatkan bagaimana sejarah dan trauma kolektif bertransformasi menjadi konflik personal yang terus berulang dari generasi ke generasi."
         },
         {
           id: "b6",
@@ -294,8 +285,7 @@
           stock: 2,
           rack: "Rak B-04",
           short: "Membangun kebiasaan kecil berdampak besar.",
-          desc:
-          "Atomic Habits membahas perubahan perilaku melalui strategi pembangunan kebiasaan kecil yang konsisten sebagai dasar transformasi jangka panjang. Buku ini menekankan bahwa peningkatan 1% yang dilakukan terus-menerus dapat menghasilkan dampak besar, sehingga fokus utama diarahkan pada pembentukan sistem, bukan semata pencapaian tujuan. James Clear menguraikan mekanisme kebiasaan melalui siklus isyarat, keinginan, respons, dan hadiah, yang menjadi kerangka untuk memahami bagaimana kebiasaan terbentuk dan dapat dimodifikasi. Buku ini menawarkan metode praktis dengan empat hukum perubahan perilaku: membuat kebiasaan terlihat, menarik, mudah, dan memuaskan; serta kebalikannya untuk menghentikan kebiasaan buruk. Selain itu, buku ini menyoroti peran identitas—bahwa perubahan paling efektif terjadi ketika kebiasaan selaras dengan cara seseorang memandang dirinya. Dengan contoh nyata dan langkah yang dapat diterapkan, buku ini relevan bagi pembaca yang ingin meningkatkan produktivitas, disiplin belajar, kesehatan, maupun manajemen waktu. Secara keseluruhan, buku ini menjadi panduan aplikatif untuk membangun rutinitas yang berkelanjutan melalui desain lingkungan, konsistensi, dan penguatan motivasi internal."
+          desc: "Atomic Habits membahas perubahan perilaku melalui strategi pembangunan kebiasaan kecil yang konsisten sebagai dasar transformasi jangka panjang. Buku ini menekankan bahwa peningkatan 1% yang dilakukan terus-menerus dapat menghasilkan dampak besar, sehingga fokus utama diarahkan pada pembentukan sistem, bukan semata pencapaian tujuan. James Clear menguraikan mekanisme kebiasaan melalui siklus isyarat, keinginan, respons, dan hadiah, yang menjadi kerangka untuk memahami bagaimana kebiasaan terbentuk dan dapat dimodifikasi."
         },
         {
           id: "b7",
@@ -306,8 +296,7 @@
           stock: 1,
           rack: "Rak E-02",
           short: "Komunikasi profesional di dunia kerja.",
-          desc:
-          "Buku Komunikasi Bisnis membahas komunikasi sebagai kompetensi inti dalam organisasi yang memengaruhi efektivitas kerja, pengambilan keputusan, dan kualitas hubungan profesional. Materi mencakup komunikasi tertulis dan lisan, seperti penyusunan email, memo, laporan, presentasi, serta komunikasi dalam rapat dan koordinasi tim. Buku ini menekankan pentingnya kejelasan pesan, ketepatan struktur informasi, pemilihan diksi yang sesuai, serta pemahaman audiens agar komunikasi tidak menimbulkan bias interpretasi. Selain itu, dibahas pula keterampilan negosiasi dan persuasi dalam konteks bisnis, termasuk strategi menyampaikan argumen, membangun kepercayaan, serta menjaga etika profesional. Buku ini memperlihatkan bahwa komunikasi bukan hanya pertukaran informasi, tetapi juga proses membentuk citra, membangun relasi, dan meminimalisasi konflik di lingkungan kerja. Dengan pendekatan praktis melalui contoh situasi bisnis dan pedoman etika, buku ini relevan bagi mahasiswa, calon profesional, dan pekerja yang membutuhkan keterampilan komunikasi yang efektif, terukur, dan sesuai budaya organisasi."
+          desc: "Buku Komunikasi Bisnis membahas komunikasi sebagai kompetensi inti dalam organisasi yang memengaruhi efektivitas kerja, pengambilan keputusan, dan kualitas hubungan profesional. Materi mencakup komunikasi tertulis dan lisan, seperti penyusunan email, memo, laporan, presentasi, serta komunikasi dalam rapat dan koordinasi tim. Buku ini menekankan pentingnya kejelasan pesan, ketepatan struktur informasi, pemilihan diksi yang sesuai, serta pemahaman audiens agar komunikasi tidak menimbulkan bias interpretasi."
         },
         {
           id: "b8",
@@ -318,9 +307,8 @@
           stock: 3,
           rack: "Rak A-06",
           short: "Limit, turunan, integral + penerapan.",
-          desc:
-          "Buku Kalkulus untuk Informatika (Panduan Python) menyajikan konsep kalkulus dengan orientasi penerapan dalam bidang komputasi dan informatika. Materi disusun mulai dari limit dan kontinuitas sebagai fondasi memahami perubahan, dilanjutkan pembahasan turunan dan aplikasinya untuk analisis laju perubahan, optimasi, dan pemodelan sederhana. Bagian integral membahas konsep akumulasi dan luas area, sekaligus keterkaitannya dengan pendekatan numerik dan interpretasi dalam konteks komputasi. Keunggulan buku ini terletak pada penyertaan contoh implementasi menggunakan Python untuk memvisualisasikan fungsi, mengeksplorasi pola, serta memvalidasi hasil perhitungan. Pendekatan ini membantu pembaca menjembatani pemahaman abstrak matematika dengan praktik pemrograman, sehingga lebih mudah dipahami dan relevan untuk kebutuhan studi seperti data science, machine learning, dan analisis algoritma. Dengan latihan bertahap dan penyajian yang sistematis, buku ini sesuai sebagai referensi perkuliahan sekaligus bahan belajar mandiri bagi mahasiswa informatika yang ingin menguatkan fondasi matematis melalui bantuan komputasi."
-        },
+          desc: "Buku Kalkulus untuk Informatika (Panduan Python) menyajikan konsep kalkulus dengan orientasi penerapan dalam bidang komputasi dan informatika. Materi disusun mulai dari limit dan kontinuitas sebagai fondasi memahami perubahan, dilanjutkan pembahasan turunan dan aplikasinya untuk analisis laju perubahan, optimasi, dan pemodelan sederhana. Bagian integral membahas konsep akumulasi dan luas area, sekaligus keterkaitannya dengan pendekatan numerik dan interpretasi dalam konteks komputasi."
+        }
       ];
 
       // ===== Ambil selected_book dari localStorage =====
@@ -333,10 +321,8 @@
         selectedBook = null;
       }
 
-      // fallback: kalau tidak ada
       if (!selectedBook || !selectedBook.id) selectedBook = BOOKS[0];
 
-      // merge dengan master biar pasti lengkap
       const master = BOOKS.find((b) => b.id === selectedBook.id) || BOOKS[0];
       selectedBook = { ...master, ...selectedBook };
 
@@ -348,23 +334,36 @@
       document.getElementById("bookRack").textContent = selectedBook.rack;
 
       document.getElementById("bookShort").textContent = selectedBook.short;
-      document.getElementById("bookCover").src = selectedBook.cover;
-      document.getElementById("bookCover").setAttribute("data-fallback", FALLBACK);
 
-      // ===== Toggle deskripsi (ringkas vs full) =====
+      const coverEl = document.getElementById("bookCover");
+      coverEl.src = selectedBook.cover;
+      coverEl.setAttribute("data-fallback", FALLBACK);
+
+      // ✅ ===== Toggle deskripsi (INI YANG DIUBAH) =====
       let expanded = false;
       const descEl = document.getElementById("bookDesc");
       const toggleBtn = document.getElementById("toggleBtn");
 
-      const fullDesc = selectedBook.desc || "";
-      const firstPara = fullDesc.split("\n\n")[0] || fullDesc;
-      const shortDesc = (firstPara || "").trim() + "\n\n(klik 'Baca Selengkapnya' untuk lanjut...)";
+      // Awalnya tampilkan short saja, bukan desc panjang
+      const shortText =
+        (selectedBook.short || "").trim() +
+        "\n\n(klik 'Baca Selengkapnya' untuk lihat deskripsi lengkap...)";
 
-      descEl.textContent = shortDesc;
+      const fullText = (selectedBook.desc || "").trim();
+
+      descEl.textContent = shortText;
 
       toggleBtn.addEventListener("click", () => {
         expanded = !expanded;
-        descEl.textContent = expanded ? fullDesc : shortDesc;
+
+        // kalau desc kosong, jangan bikin button “kosong”
+        if (!fullText) {
+          descEl.textContent = shortText;
+          toggleBtn.textContent = "Baca Selengkapnya ▾";
+          return;
+        }
+
+        descEl.textContent = expanded ? fullText : shortText;
         toggleBtn.textContent = expanded ? "Tutup ▴" : "Baca Selengkapnya ▾";
       });
 
