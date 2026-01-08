@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Peminjaman - Perpustakaan Kampus</title>
+
+    <!-- Tailwind build -->
+    <link rel="stylesheet" href="../dist/style.css" />
+  </head>
+
+  <body class="bg-white text-slate-900">
+    <!-- NAVBAR -->
+    <header class="bg-[#0b3a5a]">
+      <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+        <a href="index.html" class="text-xl font-semibold text-white">Kelompok 1</a>
+
+        <nav class="hidden items-center gap-8 text-sm text-white/80 md:flex">
+          <a href="index.html" class="hover:text-white">Home</a>
+          <a href="search.html" class="hover:text-white">Search</a>
+          <a href="dashboard.html" class="hover:text-white">Dashboard</a>
+          <a href="peminjaman.html" class="text-white">Peminjaman</a>
+          <a href="pengembalian.html" class="hover:text-white">Pengembalian</a>
+        </nav>
+
+        <div class="flex items-center gap-3 text-white">
+          <div id="navName" class="text-sm font-semibold">Name</div>
+          <div class="flex h-9 w-9 items-center justify-center rounded-full bg-white/10">👤</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ALERT -->
+    <div class="mx-auto max-w-6xl px-6">
+      <div id="alert" class="mt-6 hidden rounded-lg border px-4 py-3 text-sm"></div>
+    </div>
+
+    <!-- CONTENT -->
+    <main class="bg-white">
+      <div class="mx-auto max-w-6xl px-6 py-10">
+        <div class="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
+          <div>
+            <div class="text-[10px] tracking-[0.28em] text-slate-400">STUDENT AREA</div>
+            <h1 class="mt-2 font-serif text-4xl font-semibold leading-tight">Daftar Peminjaman</h1>
+            <p class="mt-2 max-w-2xl text-sm text-slate-600">
+              Lihat buku yang sedang kamu pinjam. Kamu bisa mengembalikan buku lewat tombol
+              <span class="font-semibold">Kembalikan</span>.
+            </p>
+          </div>
+
+          <a
+            href="search.html"
+            class="inline-flex items-center justify-center rounded-full bg-[#f59e0b] px-8 py-3 text-xs font-semibold text-[#0b3a5a] hover:brightness-95"
+          >
+            Cari Buku
+          </a>
+        </div>
+
+        <!-- CARD -->
+        <section class="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+          <div class="flex flex-wrap items-center justify-between gap-3">
+            <div class="inline-block rounded bg-[#f59e0b] px-3 py-1 text-xs font-semibold text-[#0b3a5a]">
+              Peminjaman Aktif
+            </div>
+
+            <div class="flex items-center gap-2">
+              <span class="text-xs text-slate-500">Total:</span>
+              <span
+                id="totalBorrowed"
+                class="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700"
+                >0</span
+              >
+            </div>
+          </div>
+
+          <div class="mt-5 overflow-x-auto">
+            <table class="min-w-full border-separate border-spacing-y-3">
+              <thead>
+                <tr class="text-left text-xs text-slate-500">
+                  <th class="px-4">Judul Buku</th>
+                  <th class="px-4">Tanggal Pinjam</th>
+                  <th class="px-4">Status</th>
+                  <th class="px-4 text-right">Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="borrowTbody"></tbody>
+            </table>
+          </div>
+
+          <div id="emptyState" class="mt-6 hidden rounded-xl bg-slate-50 p-6 text-center">
+            <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-sm">📚</div>
+            <div class="mt-3 text-sm font-semibold text-slate-700">Belum ada peminjaman aktif</div>
+            <p class="mx-auto mt-2 max-w-md text-xs text-slate-500">
+              Kamu belum meminjam buku. Yuk ke Search dan klik “Pinjam Sekarang”.
+            </p>
+            <div class="mt-4">
+              <a
+                href="search.html"
+                class="inline-flex rounded-full bg-[#0b3a5a] px-8 py-2 text-xs font-semibold text-white hover:brightness-110"
+              >
+                Ke Search
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <p class="mt-6 text-xs text-slate-500">
+          *Demo: data disimpan di <span class="font-semibold">localStorage</span>:
+          <span class="font-semibold">borrowed_books</span> dan <span class="font-semibold">returned_books</span>.
+        </p>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-white">
+      <div class="mx-auto max-w-6xl px-6 py-10">
+        <div class="grid gap-10 md:grid-cols-3">
+          <div>
+            <div class="text-sm font-semibold">Kelompok 1</div>
+            <p class="mt-3 max-w-xs text-xs text-slate-500">
+              Ayo luangin sedikit waktu buat baca buku, biar pikiran makin luas dan hati makin tenang.
+            </p>
+
+            <div class="mt-4 flex items-center gap-4 text-slate-500">
+              <span class="inline-flex h-6 w-6 items-center justify-center rounded border text-[10px]">IG</span>
+              <span class="inline-flex h-6 w-6 items-center justify-center rounded border text-[10px]">FB</span>
+              <span class="inline-flex h-6 w-6 items-center justify-center rounded border text-[10px]">YT</span>
+            </div>
+          </div>
+
+          <div>
+            <div class="text-sm font-semibold">Information</div>
+            <ul class="mt-3 space-y-1 text-xs text-slate-500">
+              <li><a href="index.html" class="hover:text-slate-700">Home</a></li>
+              <li><a href="search.html" class="hover:text-slate-700">Search</a></li>
+              <li><a href="dashboard.html" class="hover:text-slate-700">Dashboard</a></li>
+              <li><a href="peminjaman.html" class="hover:text-slate-700">Peminjaman</a></li>
+              <li><a href="pengembalian.html" class="hover:text-slate-700">Pengembalian</a></li>
+            </ul>
+          </div>
+
+          <div class="md:text-right">
+            <div class="text-sm font-semibold">Jam Operasional</div>
+            <p class="mt-3 text-xs text-slate-500">
+              Senin–Jumat: 08.00–16.00 <br />
+              Sabtu: 09.00–14.00 <br />
+              Minggu: Tutup
+            </p>
+
+            <p class="mt-6 text-xs text-slate-500">
+              Jl. Citra Raya Boulevard Blok S No.01 25, Kabupaten Tangerang <br />
+              Telp: (022) 08010803 <br />
+              Email: admin@perpustakaan.id
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-10 border-t pt-4 text-center text-[10px] text-slate-400">
+          © 2026 Perpustakaan Digital. All Rights Reserved.
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // ===== Helper UI =====
+      const alertBox = document.getElementById("alert");
+      function showAlert(type, message) {
+        alertBox.classList.remove("hidden");
+        alertBox.textContent = message;
+        alertBox.className = "mt-6 rounded-lg border px-4 py-3 text-sm";
+
+        if (type === "success") alertBox.classList.add("border-green-300", "bg-green-50", "text-green-700");
+        else if (type === "error") alertBox.classList.add("border-red-300", "bg-red-50", "text-red-700");
+        else alertBox.classList.add("border-yellow-300", "bg-yellow-50", "text-yellow-800");
+      }
+
+      // ===== Navbar name =====
+      const email = localStorage.getItem("user_email");
+      if (email) {
+        const name = email.split("@")[0];
+        document.getElementById("navName").textContent = name.charAt(0).toUpperCase() + name.slice(1);
+      }
+
+      // ===== Storage =====
+      const tbody = document.getElementById("borrowTbody");
+      const emptyState = document.getElementById("emptyState");
+      const totalBorrowed = document.getElementById("totalBorrowed");
+
+      function readBorrowed() {
+        return JSON.parse(localStorage.getItem("borrowed_books") || "[]");
+      }
+      function writeBorrowed(list) {
+        localStorage.setItem("borrowed_books", JSON.stringify(list));
+      }
+      function readReturned() {
+        return JSON.parse(localStorage.getItem("returned_books") || "[]");
+      }
+      function writeReturned(list) {
+        localStorage.setItem("returned_books", JSON.stringify(list));
+      }
+
+      function badgeDipinjam() {
+        return `<span class="inline-flex rounded-full bg-yellow-100 px-3 py-1 text-[11px] font-semibold text-yellow-800">Dipinjam</span>`;
+      }
+
+      function render() {
+        const borrowed = readBorrowed();
+        totalBorrowed.textContent = borrowed.length;
+
+        if (borrowed.length === 0) {
+          tbody.innerHTML = "";
+          emptyState.classList.remove("hidden");
+          return;
+        }
+
+        emptyState.classList.add("hidden");
+
+        tbody.innerHTML = borrowed
+          .map((b) => {
+            const title = b.title || "-";
+            const date = b.date || "-";
+            return `
+              <tr class="rounded-xl bg-white shadow-sm ring-1 ring-black/5">
+                <td class="px-4 py-4">
+                  <div class="text-sm font-semibold text-slate-800">${title}</div>
+                  <div class="mt-1 text-[11px] text-slate-500">ID: ${b.id || "-"}</div>
+                </td>
+                <td class="px-4 py-4 text-sm text-slate-700">${date}</td>
+                <td class="px-4 py-4">${badgeDipinjam()}</td>
+                <td class="px-4 py-4 text-right">
+                  <button
+                    data-id="${b.id}"
+                    class="btnReturn inline-flex rounded-full bg-[#0b3a5a] px-6 py-2 text-xs font-semibold text-white hover:brightness-110"
+                  >
+                    Kembalikan
+                  </button>
+                </td>
+              </tr>
+            `;
+          })
+          .join("");
+
+        document.querySelectorAll(".btnReturn").forEach((btn) => {
+          btn.addEventListener("click", () => handleReturn(btn.getAttribute("data-id")));
+        });
+      }
+
+      function handleReturn(id) {
+        const borrowed = readBorrowed();
+        const found = borrowed.find((x) => x.id === id);
+
+        if (!found) {
+          showAlert("error", "Data peminjaman tidak ditemukan.");
+          return;
+        }
+
+        // hapus dari borrowed
+        writeBorrowed(borrowed.filter((x) => x.id !== id));
+
+        // masukin ke returned_books
+        const returned = readReturned();
+        returned.unshift({
+          ...found,
+          returnDate: new Date().toLocaleDateString("id-ID"),
+          status: "Dikembalikan",
+        });
+        writeReturned(returned);
+
+        showAlert("success", `Buku berhasil dikembalikan: ${found.title}`);
+        render();
+      }
+
+      render();
+    </script>
+  </body>
+</html>

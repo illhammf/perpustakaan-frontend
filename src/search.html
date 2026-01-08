@@ -187,7 +187,7 @@
     </footer>
 
     <script>
-      // ===== Nama user (ambil dari localStorage kalau ada) =====
+      // ===== Nama user =====
       const email = localStorage.getItem("user_email");
       if (email) {
         const name = email.split("@")[0];
@@ -209,7 +209,8 @@
         });
       }
 
-      // ✅ DATA BUKU LENGKAP (samain dengan dashboard + book.html)
+      // ===== DATA BUKU (WAJIB SAMA PERSIS DENGAN book.html & dashboard.html) =====
+// ===== MASTER DATA (SAMA PERSIS KAYA DASHBOARD KAMU) =====
       const BOOKS = [
         {
           id: "b1",
@@ -220,6 +221,7 @@
           stock: 3,
           rack: "Rak A-01",
           short: "Pengantar web development untuk pemula.",
+          rating: 5,
           desc:
             "Buku Mahir Pemrograman dengan HTML, CSS, dan JavaScript menyajikan pengantar komprehensif tentang pengembangan web dari konsep dasar hingga penerapan praktis pembuatan halaman yang interaktif. Pembahasan dimulai dari HTML sebagai fondasi struktur dokumen web, mencakup pemahaman elemen, atribut, form, serta prinsip semantic markup untuk menghasilkan halaman yang lebih terorganisir dan mudah diakses. Selanjutnya, CSS dibahas sebagai perangkat untuk membangun estetika dan tata letak, meliputi box model, tipografi, warna, hingga teknik layout modern seperti flexbox dan grid yang mendukung pembuatan desain responsif. Pada bagian JavaScript, buku ini menekankan aspek logika pemrograman dan interaksi pengguna melalui manipulasi DOM, event handling, dan pembuatan fungsi-fungsi sederhana yang sering digunakan dalam aplikasi web. Melalui pendekatan bertahap dan berorientasi praktik, buku ini memberikan latihan terstruktur serta studi kasus mini proyek sebagai sarana penguatan konsep. Dengan demikian, buku ini relevan sebagai rujukan pemula yang ingin membangun kompetensi dasar front-end serta memahami alur kerja pengembangan antarmuka web secara sistematis."
         },
@@ -232,6 +234,7 @@
           stock: 2,
           rack: "Rak C-02",
           short: "Teori pendidikan & tokoh pendidikan.",
+          rating: 5,
           desc:
             "Buku Perspektif Pendidikan dalam Bingkai Ilmu dan Tokoh memaparkan pendidikan sebagai disiplin ilmu yang berkembang melalui lintasan pemikiran, teori belajar, dan kontribusi tokoh-tokoh pendidikan dari berbagai era. Pembahasan menitikberatkan pada relasi antara pendidikan dan dinamika sosial-budaya, tujuan pendidikan, serta peran institusi pendidikan dalam membentuk kualitas manusia. Buku ini menguraikan berbagai perspektif pendidikan—baik filosofis, psikologis, maupun sosiologis yang memengaruhi pendekatan pembelajaran dan praktik pedagogis. Tokoh-tokoh pendidikan dibahas tidak hanya dari sisi biografi, tetapi juga dari gagasan utama, konteks lahirnya pemikiran, dan relevansi penerapannya dalam tantangan pendidikan kontemporer. Dengan memadukan aspek konseptual dan reflektif, buku ini mendorong pembaca untuk melihat pendidikan sebagai proses yang adaptif terhadap zaman serta menekankan pentingnya peran pendidik dalam merancang pembelajaran bermakna."
         },
@@ -244,6 +247,7 @@
           stock: 1,
           rack: "Rak D-05",
           short: "Regulasi & penataan ruang.",
+          rating: 4,
           desc:
             "Buku Hukum Tata Ruang membahas kerangka hukum dan kebijakan penataan ruang sebagai instrumen penting dalam pengelolaan wilayah yang berkelanjutan. Buku ini menguraikan konsep dasar tata ruang, termasuk prinsip perencanaan, zonasi, serta hubungan antara pemanfaatan ruang dengan kepentingan publik, lingkungan, dan pembangunan. Pembaca diperkenalkan pada aspek regulasi yang mengatur penyusunan rencana tata ruang, kewenangan lembaga, mekanisme perizinan, hingga pengawasan dan penegakan hukum atas pelanggaran pemanfaatan ruang. Tidak hanya menyajikan aturan normatif, buku ini juga menyoroti problem implementasi di lapangan seperti konflik lahan, alih fungsi kawasan, dan pembangunan tanpa izin."
         },
@@ -256,6 +260,7 @@
           stock: 2,
           rack: "Rak F-01",
           short: "Novel tentang kehilangan & perjuangan.",
+          rating: 5,
           desc:
             "Novel Laut Bercerita menghadirkan narasi yang mengangkat tema persahabatan, idealisme, kehilangan, dan ketahanan keluarga dalam menghadapi situasi sosial yang menekan. Kisah disampaikan melalui sudut pandang yang emosional dan manusiawi, memperlihatkan dinamika relasi antartokoh serta pergulatan batin ketika harapan harus berhadapan dengan realitas yang pahit. Novel ini juga menjadi refleksi sosial, mengajak pembaca menyusuri jejak memori, trauma, dan upaya pencarian makna di tengah ketidakpastian."
         },
@@ -268,6 +273,7 @@
           stock: 4,
           rack: "Rak F-03",
           short: "Novel epik realisme magis.",
+          rating: 5,
           desc:
             "Cantik Itu Luka merupakan novel epik yang memadukan realisme magis, satire sosial, tragedi keluarga, dan penggalan sejarah dalam satu narasi yang berlapis. Cerita berkembang melalui tokoh-tokoh yang kompleks dengan masa lalu penuh luka, menghadirkan potret kehidupan yang dipengaruhi oleh kekuasaan, kekerasan, dan ketimpangan sosial. Elemen magis hadir sebagai simbol absurditas dan intensitas luka yang sulit dijelaskan secara realistis."
         },
@@ -280,6 +286,7 @@
           stock: 2,
           rack: "Rak B-04",
           short: "Kebiasaan kecil berdampak besar.",
+          rating: 5,
           desc:
             "Atomic Habits membahas perubahan perilaku melalui strategi pembangunan kebiasaan kecil yang konsisten sebagai dasar transformasi jangka panjang. Buku ini menekankan fokus pada pembentukan sistem, bukan hanya tujuan. James Clear menguraikan siklus kebiasaan (isyarat, keinginan, respons, hadiah) dan menawarkan empat hukum perubahan perilaku: membuat kebiasaan terlihat, menarik, mudah, dan memuaskan; serta kebalikannya untuk menghentikan kebiasaan buruk."
         },
@@ -292,6 +299,7 @@
           stock: 1,
           rack: "Rak E-02",
           short: "Komunikasi profesional di dunia kerja.",
+          rating: 4,
           desc:
             "Buku Komunikasi Bisnis membahas komunikasi sebagai kompetensi inti dalam organisasi: komunikasi tertulis (email, memo, laporan), komunikasi lisan (presentasi, rapat), hingga negosiasi dan persuasi. Buku ini menekankan kejelasan pesan, struktur informasi, pemahaman audiens, dan etika profesional. Dengan contoh situasi bisnis, pembaca dilatih membangun relasi kerja, meminimalkan konflik, dan meningkatkan efektivitas komunikasi di lingkungan organisasi."
         },
@@ -304,11 +312,12 @@
           stock: 3,
           rack: "Rak A-06",
           short: "Limit, turunan, integral + penerapan.",
+          rating: 4,
           desc:
             "Buku Kalkulus untuk Informatika (Panduan Python) menyajikan kalkulus dengan orientasi penerapan komputasi. Materi dimulai dari limit dan kontinuitas, dilanjutkan turunan untuk analisis laju perubahan dan optimasi, serta integral untuk konsep akumulasi. Keunggulan buku ini adalah contoh implementasi Python untuk visualisasi fungsi, eksplorasi pola, dan validasi perhitungan. Pendekatan ini menjembatani konsep matematika abstrak dengan praktik pemrograman, relevan untuk data science, machine learning, dan analisis algoritma."
         }
       ];
-
+      
       let activeFilter = "ALL";
       let showAll = false;
 
@@ -328,7 +337,7 @@
         return book.category === activeFilter;
       }
 
-      // ✅ simpan buku lengkap
+      // ✅ simpan buku lengkap ke localStorage (ini kunci biar book.html dapat desc panjang)
       function setSelectedBookById(id) {
         const book = BOOKS.find((b) => b.id === id);
         if (book) localStorage.setItem("selected_book", JSON.stringify(book));
@@ -370,7 +379,7 @@
         document.querySelectorAll(".btnRead").forEach((btn) => {
           btn.addEventListener("click", () => {
             const id = btn.getAttribute("data-book-id");
-            setSelectedBookById(id); // ✅ ini kuncinya
+            setSelectedBookById(id);
             window.location.href = "book.html";
           });
         });
@@ -398,17 +407,14 @@
         });
       });
 
-      // Search typing
       searchInput.addEventListener("input", () => renderBooks());
 
-      // More button
       btnMore.addEventListener("click", () => {
         showAll = !showAll;
         btnMore.textContent = showAll ? "Tampilkan Lebih Sedikit ▴" : "Lihat Lebih Banyak ▾";
         renderBooks();
       });
 
-      // render awal
       renderBooks();
     </script>
   </body>

@@ -53,18 +53,19 @@
             </a>
 
             <a
-              href="search.html"
+            href="peminjaman.html"
               class="flex items-center gap-3 rounded-md px-3 py-2 text-white/80 hover:bg-white/10 hover:text-white"
             >
               <span>📚</span> <span>Peminjaman</span>
             </a>
-
+            
             <a
-              href="search.html"
-              class="flex items-center gap-3 rounded-md px-3 py-2 text-white/80 hover:bg-white/10 hover:text-white"
-            >
-              <span>✅</span> <span>Pengembalian</span>
-            </a>
+          href="pengembalian.html"
+          class="flex items-center gap-3 rounded-md px-3 py-2 text-white/80 hover:bg-white/10 hover:text-white"
+          >
+          <span>✅</span> <span>Pengembalian</span>
+          </a>
+
 
             <div class="mt-4 border-t border-white/15 pt-4">
               <a
@@ -227,7 +228,8 @@
         return full + empty;
       }
 
-      // ✅ BOOKS dibuat LENGKAP (sama seperti book.html) supaya narasi panjang kebawa
+      // ✅ BOOKS LENGKAP (ada desc panjang)
+// ===== MASTER DATA (SAMA PERSIS KAYA DASHBOARD KAMU) =====
       const BOOKS = [
         {
           id: "b1",
@@ -334,8 +336,8 @@
             "Buku Kalkulus untuk Informatika (Panduan Python) menyajikan kalkulus dengan orientasi penerapan komputasi. Materi dimulai dari limit dan kontinuitas, dilanjutkan turunan untuk analisis laju perubahan dan optimasi, serta integral untuk konsep akumulasi. Keunggulan buku ini adalah contoh implementasi Python untuk visualisasi fungsi, eksplorasi pola, dan validasi perhitungan. Pendekatan ini menjembatani konsep matematika abstrak dengan praktik pemrograman, relevan untuk data science, machine learning, dan analisis algoritma."
         }
       ];
-
-      // ✅ SIMPAN selected_book LENGKAP
+      
+      // ✅ Simpan selected_book lengkap
       function setSelectedBookById(id) {
         const book = BOOKS.find((b) => b.id === id);
         if (book) localStorage.setItem("selected_book", JSON.stringify(book));
@@ -363,7 +365,13 @@
           </div>
         `;
 
-        a.addEventListener("click", () => setSelectedBookById(book.id));
+        // ✅ FIX: pastiin selected_book ke-set dulu baru pindah halaman
+        a.addEventListener("click", (e) => {
+          e.preventDefault();
+          setSelectedBookById(book.id);
+          window.location.href = "book.html";
+        });
+
         return a;
       }
 
