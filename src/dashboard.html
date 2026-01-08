@@ -124,11 +124,11 @@
 
             <!-- Collection Books -->
             <div class="mt-6 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-                <div
-                    class="mb-4 inline-block rounded bg-[#f59e0b] px-3 py-1 text-xs font-semibold text-[#0b3a5a]"
-                >
-                    Collection Books
-                </div>
+              <div
+                class="mb-4 inline-block rounded bg-[#f59e0b] px-3 py-1 text-xs font-semibold text-[#0b3a5a]"
+              >
+                Collection Books
+              </div>
               <div id="colGrid" class="grid gap-4 md:grid-cols-4"></div>
             </div>
           </section>
@@ -145,18 +145,9 @@
                   </p>
 
                   <div class="mt-4 flex items-center gap-4 text-slate-500">
-                    <span
-                      class="inline-flex h-6 w-6 items-center justify-center rounded border text-[10px]"
-                      >IG</span
-                    >
-                    <span
-                      class="inline-flex h-6 w-6 items-center justify-center rounded border text-[10px]"
-                      >FB</span
-                    >
-                    <span
-                      class="inline-flex h-6 w-6 items-center justify-center rounded border text-[10px]"
-                      >YT</span
-                    >
+                    <span class="inline-flex h-6 w-6 items-center justify-center rounded border text-[10px]">IG</span>
+                    <span class="inline-flex h-6 w-6 items-center justify-center rounded border text-[10px]">FB</span>
+                    <span class="inline-flex h-6 w-6 items-center justify-center rounded border text-[10px]">YT</span>
                   </div>
                 </div>
 
@@ -205,8 +196,7 @@
         window.location.href = "login.html";
       } else {
         const name = email.split("@")[0];
-        document.getElementById("userName").textContent =
-          name.charAt(0).toUpperCase() + name.slice(1);
+        document.getElementById("userName").textContent = name.charAt(0).toUpperCase() + name.slice(1);
         document.getElementById("userRole").textContent = role;
       }
 
@@ -218,6 +208,7 @@
       });
 
       // ===== FALLBACK IMAGE =====
+      const FALLBACK = "https://placehold.co/240x320/png?text=Cover%20Buku";
       function applyFallbackImages(root = document) {
         root.querySelectorAll("img[data-fallback]").forEach((img) => {
           img.addEventListener(
@@ -230,7 +221,13 @@
         });
       }
 
-      // ===== DATA BUKU (samakan dengan index kamu) =====
+      function stars(n = 5) {
+        const full = "★".repeat(Math.max(0, Math.min(5, n)));
+        const empty = "☆".repeat(5 - full.length);
+        return full + empty;
+      }
+
+      // ✅ BOOKS dibuat LENGKAP (sama seperti book.html) supaya narasi panjang kebawa
       const BOOKS = [
         {
           id: "b1",
@@ -243,7 +240,7 @@
           short: "Pengantar web development untuk pemula.",
           rating: 5,
           desc:
-            "Buku ini membahas fondasi pembuatan website: struktur HTML, styling CSS, dan logika JavaScript. Cocok untuk pemula hingga bisa membuat halaman web interaktif.",
+            "Buku Mahir Pemrograman dengan HTML, CSS, dan JavaScript menyajikan pengantar komprehensif tentang pengembangan web dari konsep dasar hingga penerapan praktis pembuatan halaman yang interaktif. Pembahasan dimulai dari HTML sebagai fondasi struktur dokumen web, mencakup pemahaman elemen, atribut, form, serta prinsip semantic markup untuk menghasilkan halaman yang lebih terorganisir dan mudah diakses. Selanjutnya, CSS dibahas sebagai perangkat untuk membangun estetika dan tata letak, meliputi box model, tipografi, warna, hingga teknik layout modern seperti flexbox dan grid yang mendukung pembuatan desain responsif. Pada bagian JavaScript, buku ini menekankan aspek logika pemrograman dan interaksi pengguna melalui manipulasi DOM, event handling, dan pembuatan fungsi-fungsi sederhana yang sering digunakan dalam aplikasi web. Melalui pendekatan bertahap dan berorientasi praktik, buku ini memberikan latihan terstruktur serta studi kasus mini proyek sebagai sarana penguatan konsep. Dengan demikian, buku ini relevan sebagai rujukan pemula yang ingin membangun kompetensi dasar front-end serta memahami alur kerja pengembangan antarmuka web secara sistematis."
         },
         {
           id: "b2",
@@ -256,7 +253,7 @@
           short: "Teori pendidikan & tokoh pendidikan.",
           rating: 5,
           desc:
-            "Mengulas sistem pendidikan nasional, perspektif pendidikan, pemikiran tokoh pendidikan, serta dasar filsafat pendidikan.",
+            "Buku Perspektif Pendidikan dalam Bingkai Ilmu dan Tokoh memaparkan pendidikan sebagai disiplin ilmu yang berkembang melalui lintasan pemikiran, teori belajar, dan kontribusi tokoh-tokoh pendidikan dari berbagai era. Pembahasan menitikberatkan pada relasi antara pendidikan dan dinamika sosial-budaya, tujuan pendidikan, serta peran institusi pendidikan dalam membentuk kualitas manusia. Buku ini menguraikan berbagai perspektif pendidikan—baik filosofis, psikologis, maupun sosiologis yang memengaruhi pendekatan pembelajaran dan praktik pedagogis. Tokoh-tokoh pendidikan dibahas tidak hanya dari sisi biografi, tetapi juga dari gagasan utama, konteks lahirnya pemikiran, dan relevansi penerapannya dalam tantangan pendidikan kontemporer. Dengan memadukan aspek konseptual dan reflektif, buku ini mendorong pembaca untuk melihat pendidikan sebagai proses yang adaptif terhadap zaman serta menekankan pentingnya peran pendidik dalam merancang pembelajaran bermakna."
         },
         {
           id: "b3",
@@ -269,7 +266,7 @@
           short: "Regulasi & penataan ruang.",
           rating: 4,
           desc:
-            "Membahas konsep dasar penataan ruang, regulasi, kelembagaan, dan contoh kasus penegakan hukum tata ruang.",
+            "Buku Hukum Tata Ruang membahas kerangka hukum dan kebijakan penataan ruang sebagai instrumen penting dalam pengelolaan wilayah yang berkelanjutan. Buku ini menguraikan konsep dasar tata ruang, termasuk prinsip perencanaan, zonasi, serta hubungan antara pemanfaatan ruang dengan kepentingan publik, lingkungan, dan pembangunan. Pembaca diperkenalkan pada aspek regulasi yang mengatur penyusunan rencana tata ruang, kewenangan lembaga, mekanisme perizinan, hingga pengawasan dan penegakan hukum atas pelanggaran pemanfaatan ruang. Tidak hanya menyajikan aturan normatif, buku ini juga menyoroti problem implementasi di lapangan seperti konflik lahan, alih fungsi kawasan, dan pembangunan tanpa izin."
         },
         {
           id: "b4",
@@ -282,7 +279,7 @@
           short: "Novel tentang kehilangan & perjuangan.",
           rating: 5,
           desc:
-            "Bertutur tentang kisah keluarga yang kehilangan dan upaya mencari kejelasan tentang orang-orang yang hilang.",
+            "Novel Laut Bercerita menghadirkan narasi yang mengangkat tema persahabatan, idealisme, kehilangan, dan ketahanan keluarga dalam menghadapi situasi sosial yang menekan. Kisah disampaikan melalui sudut pandang yang emosional dan manusiawi, memperlihatkan dinamika relasi antartokoh serta pergulatan batin ketika harapan harus berhadapan dengan realitas yang pahit. Novel ini juga menjadi refleksi sosial, mengajak pembaca menyusuri jejak memori, trauma, dan upaya pencarian makna di tengah ketidakpastian."
         },
         {
           id: "b5",
@@ -295,7 +292,7 @@
           short: "Novel epik realisme magis.",
           rating: 5,
           desc:
-            "Kisah keluarga dengan alur kaya, dibalut realisme magis dan potret sejarah. Penuh simbol dan konflik.",
+            "Cantik Itu Luka merupakan novel epik yang memadukan realisme magis, satire sosial, tragedi keluarga, dan penggalan sejarah dalam satu narasi yang berlapis. Cerita berkembang melalui tokoh-tokoh yang kompleks dengan masa lalu penuh luka, menghadirkan potret kehidupan yang dipengaruhi oleh kekuasaan, kekerasan, dan ketimpangan sosial. Elemen magis hadir sebagai simbol absurditas dan intensitas luka yang sulit dijelaskan secara realistis."
         },
         {
           id: "b6",
@@ -308,7 +305,7 @@
           short: "Kebiasaan kecil berdampak besar.",
           rating: 5,
           desc:
-            "Menjelaskan bagaimana kebiasaan terbentuk dan cara mengubahnya lewat langkah kecil yang konsisten.",
+            "Atomic Habits membahas perubahan perilaku melalui strategi pembangunan kebiasaan kecil yang konsisten sebagai dasar transformasi jangka panjang. Buku ini menekankan fokus pada pembentukan sistem, bukan hanya tujuan. James Clear menguraikan siklus kebiasaan (isyarat, keinginan, respons, hadiah) dan menawarkan empat hukum perubahan perilaku: membuat kebiasaan terlihat, menarik, mudah, dan memuaskan; serta kebalikannya untuk menghentikan kebiasaan buruk."
         },
         {
           id: "b7",
@@ -321,7 +318,7 @@
           short: "Komunikasi profesional di dunia kerja.",
           rating: 4,
           desc:
-            "Membahas surat bisnis, rapat, laporan, negosiasi, dan etika komunikasi dalam organisasi.",
+            "Buku Komunikasi Bisnis membahas komunikasi sebagai kompetensi inti dalam organisasi: komunikasi tertulis (email, memo, laporan), komunikasi lisan (presentasi, rapat), hingga negosiasi dan persuasi. Buku ini menekankan kejelasan pesan, struktur informasi, pemahaman audiens, dan etika profesional. Dengan contoh situasi bisnis, pembaca dilatih membangun relasi kerja, meminimalkan konflik, dan meningkatkan efektivitas komunikasi di lingkungan organisasi."
         },
         {
           id: "b8",
@@ -334,18 +331,11 @@
           short: "Limit, turunan, integral + penerapan.",
           rating: 4,
           desc:
-            "Membahas kalkulus untuk informatika dengan contoh penerapan dan latihan agar mudah dipahami.",
-        },
+            "Buku Kalkulus untuk Informatika (Panduan Python) menyajikan kalkulus dengan orientasi penerapan komputasi. Materi dimulai dari limit dan kontinuitas, dilanjutkan turunan untuk analisis laju perubahan dan optimasi, serta integral untuk konsep akumulasi. Keunggulan buku ini adalah contoh implementasi Python untuk visualisasi fungsi, eksplorasi pola, dan validasi perhitungan. Pendekatan ini menjembatani konsep matematika abstrak dengan praktik pemrograman, relevan untuk data science, machine learning, dan analisis algoritma."
+        }
       ];
 
-      const FALLBACK = "https://placehold.co/240x320/png?text=Cover%20Buku";
-
-      function stars(n = 5) {
-        const full = "★".repeat(Math.max(0, Math.min(5, n)));
-        const empty = "☆".repeat(5 - full.length);
-        return full + empty;
-      }
-
+      // ✅ SIMPAN selected_book LENGKAP
       function setSelectedBookById(id) {
         const book = BOOKS.find((b) => b.id === id);
         if (book) localStorage.setItem("selected_book", JSON.stringify(book));
@@ -378,8 +368,9 @@
       }
 
       // Render
-      const favIds = ["b4", "b6", "b5", "b1"]; // favorit (boleh kamu ubah urutannya)
+      const favIds = ["b4", "b6", "b5", "b1"];
       const favBooks = favIds.map((id) => BOOKS.find((b) => b.id === id)).filter(Boolean);
+
       const favGrid = document.getElementById("favGrid");
       favBooks.forEach((b) => favGrid.appendChild(createMiniCard(b)));
 
@@ -392,13 +383,11 @@
       document.getElementById("searchInput").addEventListener("input", (e) => {
         const q = e.target.value.toLowerCase().trim();
 
-        // Collection filter
         colGrid.innerHTML = "";
         BOOKS.filter((b) => b.title.toLowerCase().includes(q)).forEach((b) =>
           colGrid.appendChild(createMiniCard(b))
         );
 
-        // Favorit tetap (atau ikut filter juga kalau mau)
         favGrid.innerHTML = "";
         favBooks
           .filter((b) => b.title.toLowerCase().includes(q))
